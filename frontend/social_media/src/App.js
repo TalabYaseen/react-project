@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
-  return <Profile/>;
+  return <Register/>;
 }
 
 export default App;
