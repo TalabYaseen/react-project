@@ -2,7 +2,7 @@
     header("Access-Control-Allow-Origin: *");
     header("Content-Type: application/json;");
     
-    include_once './config.php';
+    include_once '../config.php';
     include_once './users.php';
 
     $database = new DB();

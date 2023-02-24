@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const USER_API_URL = "http://localhost/react-project/backend";
+const USER_API_URL = "http://localhost/react-project/backend/user";
 
 class UserService {
 
@@ -15,6 +15,9 @@ class UserService {
     getUserById(id){
         return axios.get(`${USER_API_URL}/single_user.php`, 
             { params: { id: id } });
+    }
+    finduser(user){
+        return axios.post(`${USER_API_URL}/finduser.php`, user);
     }
 
     updateUser(user){

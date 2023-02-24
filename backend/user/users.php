@@ -132,5 +132,35 @@
             return false;
         }
 
+        public function findUser (){
+            $sqlQuery = "SELECT
+                        *
+                      FROM
+                        ". $this->dbTable ."
+                    WHERE 
+                       email = :email AND
+                       password = :password
+
+                    LIMIT 0,1";
+    
+            $stmt = $this->conn->prepare($sqlQuery);
+            $stmt->bindParam(":email", $this->email);
+            $stmt->bindParam(":password", $this->password);
+            $stmt->execute();
+            $dataRow = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $dataRow;
+            if ($dataRow) {
+                echo (json_decode($dataRow));
+            }else {
+                echo "user not found";
+            }
+            
+            // $this->first_name = $dataRow['first_name'];
+            // $this->last_name = $dataRow['last_name'];
+            // $this->email = $dataRow['email'];
+          
+        }    
+
     }
+    
 ?>
