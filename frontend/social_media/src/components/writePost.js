@@ -14,29 +14,24 @@ const WritePost = () => {
                                         <div className="attachments">
                                           <ul>
                                             <li>
-                                              <i className="fa fa-music" style={{color:"red"}} />
+                                              <i className="fa fa-image" style={{color:"green"}}/>
                                               <label className="fileContainer">
                                                 <input type="file" />
                                               </label>
                                             </li>
-                                            <li>
-                                              <i className="fa fa-image" style={{color:"blue"}}/>
-                                              <label className="fileContainer">
-                                                <input type="file" />
-                                              </label>
-                                            </li>
-                                            <li>
+                                            {/* <li>
                                               <i className="fa fa-video-camera" />
                                               <label className="fileContainer">
                                                 <input type="file" />
                                               </label>
-                                            </li>
-                                            <li>
+                                            </li> */}
+                                            
+                                            {/* <li>
                                               <i className="fa fa-camera" />
                                               <label className="fileContainer">
                                                 <input type="file" />
                                               </label>
-                                            </li>
+                                            </li> */}
                                             <li>
                                               <button type="submit">Post</button>
                                             </li>

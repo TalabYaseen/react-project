@@ -54,14 +54,13 @@ const EditProfile = () => {
                                     <span>Group Admin</span>
                                   </li>
                                   <li>
-                                    <a className="active" href="time-line.html" title data-ripple>time line</a>
-                                    <a className href="timeline-photos.html" title data-ripple>Photos</a>
-                                    <a className href="timeline-videos.html" title data-ripple>Videos</a>
+                                  <a className href="/profile" title data-ripple> My Profile</a>
                                     <a className href="timeline-friends.html" title data-ripple>Friends</a>
-                                    <a className href="timeline-groups.html" title data-ripple>Groups</a>
-                                    <a className href="about.html" title data-ripple>about</a>
-                                    <a className href="#" title data-ripple>more</a>
-                                  </li>
+                                    <a className href="/Groups" title data-ripple>Groups</a>
+                                    <a className="active" href="/EditProfile" title data-ripple>Edit Profile</a> 
+                                    <a className href="/SingleGroup" title data-ripple>SingleGroup</a>
+                                    <a className href="/chat" title data-ripple>Chat</a>
+                                   </li>
                                 </ul>
                               </div>
                             </div>
