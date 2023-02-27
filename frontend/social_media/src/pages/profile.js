@@ -96,8 +96,7 @@ useEffect(()=>{
                           <img src={userdata.cover_pic?require("../components/images/cover_pics/"+userdata.cover_pic):require("../components/images/cover_pics/coverphotoplaceholder.png")} alt="" />
                           </figure>
                         <div className="add-btn">
-                          {/* <span>1205 followers</span> */}
-                          {/* <a href="#" title data-ripple>Add Friend</a> */}
+                          <a href="#" title data-ripple>Add Friend</a>
                         </div>
                         <form className="edit-phto">
                           <i className="fa fa-camera-retro" />
@@ -131,13 +130,13 @@ useEffect(()=>{
                                     {/* <span>Group Admin</span> */}
                                   </li>
                                   <li>
-                                    <a className="active" href="time-line.html" title data-ripple>time line</a>
-                                    <a className href="timeline-photos.html" title data-ripple>Photos</a>
-                                    <a className href="timeline-videos.html" title data-ripple>Videos</a>
+                                    <a className="active" href="/profile" title data-ripple> My Profile</a>
                                     <a className href="timeline-friends.html" title data-ripple>Friends</a>
-                                    <a className href="timeline-groups.html" title data-ripple>Groups</a>
-                                    <a className href="about.html" title data-ripple>about</a>
-                                    <a className href="#" title data-ripple>more</a>
+                                    <a className href="/Groups" title data-ripple>Groups</a>
+                                    <a className href="/EditProfile" title data-ripple>Edit Profile</a> 
+                                    <a className href="/SingleGroup" title data-ripple>SingleGroup</a>
+                                    <a className href="/chat" title data-ripple>Chat</a>
+
                                   </li>
                                 </ul>
                               </div>
@@ -180,8 +179,6 @@ useEffect(()=>{
                       <div className="container">
                         <div className="row">
                           <div className="col-md-12">
-                            {/* <span className="copyright"><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></span> */}
-                           
                           </div>
                         </div>
                       </div>
