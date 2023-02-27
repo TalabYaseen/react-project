@@ -7,12 +7,23 @@ import EditProfile from './pages/EditProfile';
 import Chat from './pages/Chat';
 import Groups from './pages/groups';
 import SingleGroup from './pages/singleGroup';
+import { BrowserRouter as Router, Route, Link, Switch, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div >
-     <Profile/>
-    </div>
+    <>
+      <Router>
+          <Routes>
+            <Route exact path="/" element={<Home/>}/>
+            <Route exact path="/profile" element={<Profile/>}/>
+            <Route exact path="/Chat" element={<Chat/>}/>
+            <Route exact path="/EditProfile" element={<EditProfile/>}/>
+            <Route exact path="/Groups" element={<Groups/>}/>
+            <Route exact path="/Chat" element={<Chat/>}/>
+            <Route exact path="/SingleGroup" element={<SingleGroup/>}/>
+          </Routes>
+      </Router>
+    </>
   );
 }
 

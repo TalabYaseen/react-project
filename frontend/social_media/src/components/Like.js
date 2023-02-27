@@ -34,12 +34,6 @@ function Like(props) {
     <div>
       <div className="we-video-info">
                                             <ul>
-                                              {/* <li>
-                                                <span className="views" data-toggle="tooltip" title="views">
-                                                  <i className="fa fa-eye" />
-                                                  <ins>1.2k</ins>
-                                                </span>
-                                              </li> */}
                                               <li>
                                                 <span className="comment" data-toggle="tooltip" title="Comments">
                                                   <i className="fa fa-comments-o" />
@@ -48,6 +42,7 @@ function Like(props) {
                                               </li>
                                               <li>
                                                 <span className="like" data-toggle="tooltip" title="like">
+
                                                   <i className="ti-heart" />
                                                   <ins>{likes}</ins>
                                                 </span>
@@ -96,4 +91,4 @@ function Like(props) {
   )
 }
 
-export default Like
+export default Like;

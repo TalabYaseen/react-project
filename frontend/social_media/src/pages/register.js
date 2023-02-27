@@ -8,14 +8,10 @@ const Register = () => {
             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <div className="land-featurearea">
                 <div className="land-meta">
-                  <h1>Winku</h1>
-                  <p>
-                    Winku is free to use for as long as you want with two active projects.
-                  </p>
+                  <h1>Nashmi</h1>
                   <div className="friend-logo">
                     <span><img src="images/wink.png" alt="" /></span>
                   </div>
-                  <a href="#" title className="folow-me">Follow Us on</a>
                 </div>	
               </div>
             </div>
@@ -27,15 +23,15 @@ const Register = () => {
                   <form method="post">
                     <div className="form-group">	
                       <input type="text" id="input" required="required" />
-                      <label className="control-label" htmlFor="input">Full name</label><i className="mtrl-select" />
+                      <label className="control-label" htmlFor="input">First name</label><i className="mtrl-select" />
                     </div>
                     <div className="form-group">	
                     <input type="email" id="input" required="required" />
-                    <label className="control-label" htmlFor="input">Email</label><i className="mtrl-select" />
+                    <label className="control-label" htmlFor="input">Last name</label><i className="mtrl-select" />
                   </div>
                     <div className="form-group">	
                     <input type="text" id="input" required="required" />
-                    <label className="control-label" htmlFor="input">Phone</label><i className="mtrl-select" />
+                    <label className="control-label" htmlFor="input">Email</label><i className="mtrl-select" />
                   </div>
                     <div className="form-group">	
                       <input type="password" required="required" />
@@ -54,12 +50,12 @@ const Register = () => {
                     <p>Already have an account? <a type="button"><span>Login Now!</span></a></p>
                   </form>
                 </div>
-                <div className="log-reg-area reg">
+                {/* <div className="log-reg-area reg">
                   <h2 className="log-title">Register</h2>
                   <p>
                     Don’t use Winku Yet? <a href="#" title>Take the tour</a> or <a href="#" title>Join now</a>
-                  </p>
-                  <form method="post">
+                  </p> */}
+                  {/* <form method="post">
                     <div className="form-group">	
                       <input type="text" required="required" />
                       <label className="control-label" htmlFor="input">First &amp; Last Name</label><i className="mtrl-select" />
@@ -97,8 +93,8 @@ const Register = () => {
                     <div className="submit-btns">
                       <button className="mtr-btn signup" type="button"><span>Register</span></button>
                     </div>
-                  </form>
-                </div>
+                  </form> */}
+                {/* </div> */}
               </div>
             </div>
           </div>

@@ -5,9 +5,8 @@ const Rightbar = () => {
         
         <div className="col-lg-3">
                               <aside className="sidebar static">
-                                <div className="widget">
-                                								
-                                </div>
+                                {/* <div className="widget">
+                                </div> */}
                                 <div className="widget friend-list stick-widget">
                                   <h4 className="widget-title">Friends</h4>
                                   <div id="searchDir" />
@@ -92,16 +91,7 @@ const Rightbar = () => {
                                         <i><a href="https://wpkixx.com/cdn-cgi/l/email-protection" className="__cf_email__" data-cfemail="dbb1baa8b4b5b99bbcb6bab2b7f5b8b4b6">[email&nbsp;protected]</a></i>
                                       </div>
                                     </li>
-                                    <li>
-                                      <figure>
-                                        <img src="images/resources/friend-avatar2.jpg" alt="" />
-                                        <span className="status f-away" />
-                                      </figure>
-                                      <div className="friendz-meta">
-                                        <a href="time-line.html">Sarah Loren</a>
-                                        <i><a href="https://wpkixx.com/cdn-cgi/l/email-protection" className="__cf_email__" data-cfemail="2644475448435566414b474f4a0845494b">[email&nbsp;protected]</a></i>
-                                      </div>
-                                    </li>
+                                  
                                   </ul>
                                   <div className="chat-box">
                                     <div className="chat-head">
@@ -113,56 +103,6 @@ const Rightbar = () => {
                                       </div>
                                     </div>
                                     <div className="chat-list">
-                                      <ul>
-                                        <li className="me">
-                                          <div className="chat-thumb"><img src="images/resources/chatlist1.jpg" alt="" /></div>
-                                          <div className="notification-event">
-                                            <span className="chat-message-item">
-                                              Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
-                                            </span>
-                                            <span className="notification-date"><time dateTime="2004-07-24T18:18" className="entry-date updated">Yesterday at 8:10pm</time></span>
-                                          </div>
-                                        </li>
-                                        <li className="you">
-                                          <div className="chat-thumb"><img src="images/resources/chatlist2.jpg" alt="" /></div>
-                                          <div className="notification-event">
-                                            <span className="chat-message-item">
-                                              Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
-                                            </span>
-                                            <span className="notification-date"><time dateTime="2004-07-24T18:18" className="entry-date updated">Yesterday at 8:10pm</time></span>
-                                          </div>
-                                        </li>
-                                        <li className="me">
-                                          <div className="chat-thumb"><img src="images/resources/chatlist1.jpg" alt="" /></div>
-                                          <div className="notification-event">
-                                            <span className="chat-message-item">
-                                              Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
-                                            </span>
-                                            <span className="notification-date"><time dateTime="2004-07-24T18:18" className="entry-date updated">Yesterday at 8:10pm</time></span>
-                                          </div>
-                                        </li>
-                                      </ul>
-                                      <form className="text-box">
-                                        <textarea placeholder="Post enter to post..." defaultValue={""} />
-                                        <div className="add-smiles">
-                                          <span title="add icon" className="em em-expressionless" />
-                                        </div>
-                                        <div className="smiles-bunch">
-                                          <i className="em em---1" />
-                                          <i className="em em-smiley" />
-                                          <i className="em em-anguished" />
-                                          <i className="em em-laughing" />
-                                          <i className="em em-angry" />
-                                          <i className="em em-astonished" />
-                                          <i className="em em-blush" />
-                                          <i className="em em-disappointed" />
-                                          <i className="em em-worried" />
-                                          <i className="em em-kissing_heart" />
-                                          <i className="em em-rage" />
-                                          <i className="em em-stuck_out_tongue" />
-                                        </div>
-                                        <button type="submit" />
-                                      </form>
                                     </div>
                                   </div>
                                 </div>{/* friends list sidebar */}
