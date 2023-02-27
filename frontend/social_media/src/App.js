@@ -1,23 +1,18 @@
-import Home from "./pages/home/Home";
-import Login from "./pages/login/Login";
-import Profile from "./pages/profile/Profile";
-import Register from "./pages/register/Register";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter,Routes,Route } from "react-router-dom";
 
-
+import Home from './pages/home';
+import Register from './pages/register';
+import Login from './pages/login';
+import Profile from './pages/profile';
+import EditProfile from './pages/EditProfile';
+import Chat from './pages/Chat';
+import Groups from './pages/groups';
+import SingleGroup from './pages/singleGroup';
 
 function App() {
   return (
-  <>
-  <BrowserRouter>
-  <Routes>
-    <Route path='/login' element={< Login />}></Route>
-    <Route path='/' element={< Register />}></Route>
-    <Route path='/home' element={< Home />}></Route>
-    </Routes>
-  </BrowserRouter>
-  </>
+    <div >
+     <SingleGroup/>
+    </div>
   );
 }
 
