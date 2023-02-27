@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/navbar';
 import Sidebar from '../components/sidebar';
 import Rightbar from '../components/rightbar';
@@ -8,8 +8,64 @@ import InfoPost from '../components/InfoPost';
 import ShowComment from '../components/ShowComment';
 import WriteComment from '../components/WriteComment';
 import Post from '../components/Post';
+import axios from "axios";
 
 const Profile = () => {
+  // localStorage.setItem("user", JSON.stringify({
+  //   id:7,
+  //   first_name:"talab",
+  //   last_name:"yaseen",
+  //   email:7,
+  //   password:7,
+  //   phone:7,
+  //   profile_pic:"",
+  //   cover_pic:"",
+  // }))
+  const [userdata,setuserdata]=useState (JSON.parse(localStorage.getItem("user")))
+  console.log (userdata)
+
+  // function change cover photo start
+  const  changecoverphoto = async (e) => {
+    const formEditData = new FormData();
+    formEditData.append("userid", userdata.id);
+    formEditData.append("coverphoto", e.target.files[0]);
+    try {
+      const response = await axios.post(
+        "http://localhost/react-project/backend/user/editecoverpic.php", formEditData
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+
+    var user =  JSON.parse(localStorage.getItem("user"));
+    user.cover_pic = e.target.files[0].name;
+    localStorage.setItem("user",JSON.stringify(user));
+    setuserdata(user);
+  }
+    // function change cover photo end
+
+
+    // function change profile photo start
+    const changecprofilephoto = async (e) => {
+      const formEditData = new FormData();
+      formEditData.append("userid", userdata.id);
+      formEditData.append("profilephoto", e.target.files[0]);
+      try {
+        const response = await axios.post(
+          "http://localhost/react-project/backend/user/editeprofilepic.php", formEditData
+        );
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    var user =  JSON.parse(localStorage.getItem("user"));
+    user.profile_pic = e.target.files[0].name;
+    localStorage.setItem("user",JSON.stringify(user));
+    setuserdata(user); 
+  }
+
+  
     return (
        
                 <div>
@@ -17,16 +73,19 @@ const Profile = () => {
                   <Navbar/>
                     <section>
                       <div className="feature-photo">
-                        <figure><img src="images/resources/timeline-1.jpg" alt="" /></figure>
+                        <figure>
+                          {/* this cover photo must read from local storage if not found we must give it a no cover photo is set or any other photo*/}
+                          <img src={userdata.cover_pic?require("../components/images/cover_pics/"+userdata.cover_pic):require("../components/images/cover_pics/coverphotoplaceholder.png")} alt="" />
+                          </figure>
                         <div className="add-btn">
-                          <span>1205 followers</span>
-                          <a href="#" title data-ripple>Add Friend</a>
+                          {/* <span>1205 followers</span> */}
+                          {/* <a href="#" title data-ripple>Add Friend</a> */}
                         </div>
                         <form className="edit-phto">
                           <i className="fa fa-camera-retro" />
                           <label className="fileContainer">
                             Edit Cover Photo
-                            <input type="file" />
+                            <input type="file" onChange={changecoverphoto}/>
                           </label>
                         </form>
                         <div className="container-fluid">
@@ -34,12 +93,13 @@ const Profile = () => {
                             <div className="col-lg-2 col-sm-3">
                               <div className="user-avatar">
                                 <figure>
-                                  <img src="images/resources/user-avatar.jpg" alt="" />
+                                  {/* same as cover pic for profile pic */}
+                                  <img src={userdata.profile_pic?require("../components/images/profile_pics/"+userdata.profile_pic):require("../components/images/profile_pics/coverphotoplaceholder.png")} alt="" />
                                   <form className="edit-phto">
                                     <i className="fa fa-camera-retro" />
                                     <label className="fileContainer">
                                       Edit Display Photo
-                                      <input type="file" />
+                                      <input type="file"  onChange={changecprofilephoto}/>
                                     </label>
                                   </form>
                                 </figure>
@@ -49,8 +109,8 @@ const Profile = () => {
                               <div className="timeline-info">
                                 <ul>
                                   <li className="admin-name">
-                                    <h5>Janice Griffith</h5>
-                                    <span>Group Admin</span>
+                                    <h5>{userdata.first_name} {userdata.last_name}</h5>
+                                    {/* <span>Group Admin</span> */}
                                   </li>
                                   <li>
                                     <a className="active" href="time-line.html" title data-ripple>time line</a>
@@ -79,7 +139,7 @@ const Profile = () => {
                                 
                                 
                                 {/* Write post start*/}
-                                <WritePost/>
+                                <WritePost userpic = {userdata.profile_pic} userid = {userdata.id}/>
                                 {/* Write post end*/}
 
 

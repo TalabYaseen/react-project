@@ -11,7 +11,7 @@ import SingleGroup from './pages/singleGroup';
 function App() {
   return (
     <div >
-     <SingleGroup/>
+     <Profile/>
     </div>
   );
 }

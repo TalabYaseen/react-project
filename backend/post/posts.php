@@ -26,8 +26,9 @@ switch ($method) {
 
 
     case 'POST' :
-
-        $text = $_POST["post"];
+        echo ($_POST["post_content"]);
+        print_r($_FILES["file"]);
+        $text = $_POST["post_content"];
         $user_id = $_POST['user_id'];
         if($_FILES["file"] == null){
         $file = "";
@@ -36,7 +37,7 @@ switch ($method) {
         }
 
         if($file != ""){
-            $targetDir = "../../frontend/social_media/src/components/images/";
+            $targetDir = "../../frontend/social_media/src/components/images/posts-pics/";
             $fileName = basename($file["name"]);
             $targetPath = $targetDir . $fileName;
         

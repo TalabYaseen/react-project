@@ -159,8 +159,41 @@
             // $this->last_name = $dataRow['last_name'];
             // $this->email = $dataRow['email'];
           
-        }    
+        }   
+        
+        
+        public function updatecoverpic (){
+            $sqlQuery = "UPDATE
+                        ". $this->dbTable ."
+                    SET
+                    first_name = :first_name, 
+                    last_name = :last_name, 
+                    email = :email
+                    WHERE 
+                        id = :id";
+        
+            $stmt = $this->conn->prepare($sqlQuery);
+        
+            $this->first_name=htmlspecialchars(strip_tags($this->first_name));
+            $this->last_name=htmlspecialchars(strip_tags($this->last_name));
+            $this->email=htmlspecialchars(strip_tags($this->email));
+            $this->id=htmlspecialchars(strip_tags($this->id));
+        
+            // bind data
+            $stmt->bindParam(":first_name", $this->first_name);
+            $stmt->bindParam(":last_name", $this->last_name);
+            $stmt->bindParam(":email", $this->email);
+            $stmt->bindParam(":id", $this->id);
+        
+            if($stmt->execute()){
+               return true;
+            }
+            return false;
+        }
 
     }
+
+
+
     
 ?>
