@@ -2,14 +2,23 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 function Like(props) {
   console.log(props.postid)
-
+  const [isliked,setisliked] = useState(false)
   // تعريف ستات لتخزين عدد اللايكات على البوست
   const [likes,setLikes] = useState(0)
   // معرفة عدد اللايكات على البوست من الداتا بيس
   const getLikes = (id) => {
-    axios.get(`http://localhost/react-project/backend/post/likes.php?${id}`)
+    const userid =  (JSON.parse(localStorage.getItem("user"))).id;
+    axios.get(`http://localhost/react-project/backend/post/likes.php?${id}?${userid}`)
     .then(response =>{
-      setLikes(response.data);
+      setLikes (response.data.count);
+      console.log (response)
+      if (response.data.isliked == 'true'){
+        setisliked(true);
+        console.log("yes")
+      }else {
+        setisliked(false);
+        console.log("no")
+      }
     })
   }
 
@@ -30,6 +39,8 @@ function Like(props) {
     }
     ,[]
   )
+
+
   return (
     <div>
       <div className="we-video-info">
