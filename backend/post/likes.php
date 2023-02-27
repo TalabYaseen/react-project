@@ -4,19 +4,20 @@ $db = $database->getConnection(); ?>
 
 <?php
 
-header("Access-Control-Allow-Origin: *"); 
+header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods:*");
 
 $path = explode('?' , $_SERVER['REQUEST_URI']);
-
-$sql = "SELECT * FROM `comments`
-INNER JOIN `users` ON comments.user_id = users.id
-WHERE comments.post_id = $path[1]" ;
+$id =  $path[1];
+$sql = "SELECT * FROM `likes`
+INNER JOIN `users` ON likes.user_id = users.id
+WHERE likes.post_id = $id " ;
 $query = $db->prepare($sql);
 $stmt=$query->execute();
 $count = $query->rowCount();
-echo(json_encode($count));
+echo (json_encode($count));
+// echo(json_encode($stmt));
 
-// echo ("good")
+// echo ($_SERVER['REQUEST_URI'])
 
 ?>

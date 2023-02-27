@@ -26,17 +26,20 @@ switch ($method) {
 
 
     case 'POST' :
-
-        $text = $_POST["post"];
+        echo ($_POST["post_content"]);
+        print_r($_FILES["file"]);
+        $text = $_POST["post_content"];
         $user_id = $_POST['user_id'];
         if($_FILES["file"] == null){
-        $file = "";
-        } else {
+                $sql = "INSERT INTO posts (user_id , content )
+                        VALUES ( ? , ? )" ;
+                $query = $db->prepare($sql);
+                $query->execute([$user_id , $text ]);
+                break;
+            }
+        else {
             $file = $_FILES["file"] ;
-        }
-
-        if($file != ""){
-            $targetDir = "../../frontend/social_media/src/components/images/";
+            $targetDir = "../../frontend/social_media/src/components/images/posts-pics/";
             $fileName = basename($file["name"]);
             $targetPath = $targetDir . $fileName;
         
@@ -47,16 +50,7 @@ switch ($method) {
                 $query = $db->prepare($sql);
                 $query->execute([$user_id , $text , $fileName ]);
                 break;
-            } else {
-            echo "Error uploading file";
-            }
-        } else {
-            $sql = "INSERT INTO posts (user_id , content )
-                    VALUES ( ? , ? )" ;
-            $query = $db->prepare($sql);
-            $query->execute([$user_id , $text ]);
-            break;
-        }
+        }}
 
 
 
