@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 
 const WritePost = (props) => {
@@ -17,6 +17,7 @@ const WritePost = (props) => {
       );
       console.log(response.data);
       // window.location.assign('/home');
+      setpostcontent("")
     } catch (error) {
       console.error(error);
     }

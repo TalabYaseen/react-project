@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Navbar from '../components/navbar';
 import Sidebar from '../components/sidebar';
 import Rightbar from '../components/rightbar';
@@ -64,8 +64,26 @@ const Profile = () => {
     localStorage.setItem("user",JSON.stringify(user));
     setuserdata(user); 
   }
+  // function change profile photo end
 
-  
+
+  // make a state to store the requested posts data
+  const [posts , setPosts] = useState([]);
+  // get all posts function start
+  function getPosts(){
+    axios.get(`http://localhost/react-project/backend/post/posts.php`)
+    .then(response => {
+        setPosts(response.data);
+    })
+}
+// get all posts function end
+// using hook to store all posts and comments data and rerender the page
+useEffect(()=>{
+  getPosts();
+  // getComments();
+} , [])
+
+  console.log(posts);
     return (
        
                 <div>
@@ -145,8 +163,8 @@ const Profile = () => {
 
                                 {/* add post new box */}
                                 <div className="loadMore">
-                                {/*POST*/}
-                                   <Post/>
+                                {/*POSTS*/}
+                                {posts.map(e=><Post data={e}/>)}
                                   
                                 </div>
                               </div>{/* centerl meta */}
