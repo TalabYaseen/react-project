@@ -15,9 +15,8 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($method) {
     case 'GET' :
-        $sql = "SELECT * FROM `users`
-                INNER JOIN `posts` ON posts.user_id = users.id
-                ORDER BY posts.created_at DESC" ;
+        $sql = "SELECT * FROM `users` INNER JOIN `posts` ON posts.user_id = users.id 
+        ORDER BY posts.created_at DESC" ;
         $query = $db->prepare($sql);
         $query->execute();
         $posts = $query->fetchAll(PDO::FETCH_ASSOC);
