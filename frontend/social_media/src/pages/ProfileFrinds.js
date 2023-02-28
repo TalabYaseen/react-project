@@ -9,7 +9,7 @@ import ShowComment from '../components/ShowComment';
 import WriteComment from '../components/WriteComment';
 import Post from '../components/Post';
 
-const Profile = () => {
+const ProfileFrinds = () => {
     return (
        
                 <div>
@@ -18,29 +18,29 @@ const Profile = () => {
                     <section>
                       <div className="feature-photo">
                         <figure><img src="images/resources/timeline-1.jpg" alt="" /></figure>
-                        {/* <div className="add-btn">
+                        <div className="add-btn">
                           <a href="#" title data-ripple>Add Friend</a>
-                        </div> */}
-                        <form className="edit-phto">
+                        </div>
+                        {/* <form className="edit-phto">
                           <i className="fa fa-camera-retro" />
                           <label className="fileContainer">
                             Edit Cover Photo
                             <input type="file" />
                           </label>
-                        </form>
+                        </form> */}
                         <div className="container-fluid">
                           <div className="row merged">
                             <div className="col-lg-2 col-sm-3">
                               <div className="user-avatar">
                                 <figure>
                                   <img src="images/resources/user-avatar.jpg" alt="" />
-                                  <form className="edit-phto">
+                                  {/* <form className="edit-phto">
                                     <i className="fa fa-camera-retro" />
                                     <label className="fileContainer">
                                       Edit Display Photo
                                       <input type="file" />
                                     </label>
-                                  </form>
+                                  </form> */}
                                 </figure>
                               </div>
                             </div>
@@ -75,13 +75,6 @@ const Profile = () => {
                             <div className="row" id="page-contents">
                             <Sidebar/>
                               <div className="col-lg-6">
-                                
-                                
-                                {/* Write post start*/}
-                                <WritePost/>
-                                {/* Write post end*/}
-
-
                                 {/* add post new box */}
                                 <div className="loadMore">
                                 {/*POST*/}
@@ -174,4 +167,4 @@ const Profile = () => {
     );
 }
 
-export default Profile;
+export default ProfileFrinds;

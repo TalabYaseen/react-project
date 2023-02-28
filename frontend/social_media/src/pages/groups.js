@@ -3,6 +3,7 @@ import Group from '../components/Group'
 import Navbar from '../components/navbar'
 import Rightbar from '../components/rightbar'
 import Sidebar from '../components/sidebar'
+import CreateGroup from '../components/CreateGroup'
 
 function Groups() {
   return (
@@ -10,7 +11,7 @@ function Groups() {
         <div>
           <div className="theme-layout">
            <Navbar/>
-            <section>
+            {/* <section>
               <div className="page-header">
                 <div className="header-inner">
                   <h2>your Searched Groups</h2>
@@ -20,15 +21,18 @@ function Groups() {
                   </nav>
                 </div>
               </div>
-            </section>
+            </section> */}
             <section>
               <div className="gap gray-bg">
                 <div className="container-fluid">
                   <div className="row">
                     <div className="col-lg-12">
                       <div className="row" id="page-contents">
+
+
                        <Sidebar/>
                         <div className="col-lg-6">
+                          <CreateGroup/>
                          <Group/>
                        {/* centerl meta */}
                         <div className="col-lg-3">
