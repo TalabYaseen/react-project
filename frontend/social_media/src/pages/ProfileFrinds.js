@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Navbar from '../components/navbar';
 import Sidebar from '../components/sidebar';
 import Rightbar from '../components/rightbar';
@@ -8,12 +8,11 @@ import InfoPost from '../components/InfoPost';
 import ShowComment from '../components/ShowComment';
 import WriteComment from '../components/WriteComment';
 import Post from '../components/Post';
-import Editprofile from '../components/Editprofile';
 
-const EditProfile = () => {
-  return (
-    <div>
-          <div>
+const ProfileFrinds = () => {
+    return (
+       
+                <div>
                   <div className="theme-layout">
                   <Navbar/>
                     <section>
@@ -22,26 +21,26 @@ const EditProfile = () => {
                         <div className="add-btn">
                           <a href="#" title data-ripple>Add Friend</a>
                         </div>
-                        <form className="edit-phto">
+                        {/* <form className="edit-phto">
                           <i className="fa fa-camera-retro" />
                           <label className="fileContainer">
                             Edit Cover Photo
                             <input type="file" />
                           </label>
-                        </form>
+                        </form> */}
                         <div className="container-fluid">
                           <div className="row merged">
                             <div className="col-lg-2 col-sm-3">
                               <div className="user-avatar">
                                 <figure>
                                   <img src="images/resources/user-avatar.jpg" alt="" />
-                                  <form className="edit-phto">
+                                  {/* <form className="edit-phto">
                                     <i className="fa fa-camera-retro" />
                                     <label className="fileContainer">
                                       Edit Display Photo
                                       <input type="file" />
                                     </label>
-                                  </form>
+                                  </form> */}
                                 </figure>
                               </div>
                             </div>
@@ -53,13 +52,14 @@ const EditProfile = () => {
                                     <span>Group Admin</span>
                                   </li>
                                   <li>
-                                  <a className href="/profile" title data-ripple> My Profile</a>
+                                    <a className="active" href="/profile" title data-ripple> My Profile</a>
                                     <a className href="timeline-friends.html" title data-ripple>Friends</a>
                                     <a className href="/Groups" title data-ripple>Groups</a>
-                                    <a className="active" href="/EditProfile" title data-ripple>Edit Profile</a> 
+                                    <a className href="/EditProfile" title data-ripple>Edit Profile</a> 
                                     <a className href="/SingleGroup" title data-ripple>SingleGroup</a>
                                     <a className href="/chat" title data-ripple>Chat</a>
-                                   </li>
+
+                                  </li>
                                 </ul>
                               </div>
                             </div>
@@ -75,16 +75,10 @@ const EditProfile = () => {
                             <div className="row" id="page-contents">
                             <Sidebar/>
                               <div className="col-lg-6">
-                                
-                                
-                         
-                         <Editprofile/>
-
-
                                 {/* add post new box */}
                                 <div className="loadMore">
-                             
-                                
+                                {/*POST*/}
+                                   <Post/>
                                   
                                 </div>
                               </div>{/* centerl meta */}
@@ -100,8 +94,6 @@ const EditProfile = () => {
                       <div className="container">
                         <div className="row">
                           <div className="col-md-12">
-                            {/* <span className="copyright"><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></span> */}
-                            
                           </div>
                         </div>
                       </div>
@@ -171,20 +163,8 @@ const EditProfile = () => {
                     </form>
                   </div>{/* side panel */}
                 </div>
-    </div>
-  )
+            
+    );
 }
 
-export default EditProfile
-
-
-
-
-
-
-
-
-
-
-
-
+export default ProfileFrinds;
