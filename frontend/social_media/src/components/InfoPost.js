@@ -1,24 +1,38 @@
 import React from 'react'
 import Like from './Like'
-function InfoPost() {
+function InfoPost(props) {
+  const deletePost = () => {
+    
+  }
+  const editPost = () => {
+
+  }
   return (
+    
     <div>
         <div className="friend-info">
                                         <figure>
-                                          <img src="images/resources/friend-avatar10.jpg" alt="" />
+                                          <img src={props.data.profile_pic?require("../components/images/profile_pics/"+props.data.profile_pic):require("../components/images/profile_pics/coverphotoplaceholder.png")} alt="" />
                                         </figure>
                                         <div className="friend-name">
-                                          <ins><a href="time-line.html" title>Janice Griffith</a></ins>
-                                          <span>published: june,2 2018 19:PM</span>
+                                          <ins><a href="time-line.html" title>{props.data.first_name} {props.data.last_name}</a></ins>
+                                          <span>published: {props.data.created_at}</span>
                                         </div>
+                                        {/* delete and edit post */}
+                                        {(props.data.id == JSON.parse(localStorage.getItem("user")).id) ?
+                                        <div>
+                                          <button onClick={() => {deletePost(props.data.post_id)}}>Delete Your Post</button>
+                                          <button id={`editPostBTN${props.data.post_id}`} onClick={() => {editPost(props.data.post_id)}}>edite</button>
+                                        </div>
+                                        : null }
                                         <div className="post-meta">
-                                          <img src="images/resources/user-post.jpg" alt="" />
-                                          <Like/>
+                                          {props.data.post_image && <img src={require("../components/images/posts-pics/"+props.data.post_image)} alt="" />}
                                           <div className="description">
                                             <p>
-                                              World's most beautiful car in Curabitur <a href="#" title>#test drive booking !</a> the most beatuiful car available in america and the saudia arabia, you can book your test drive by our official website
+                                            {props.data.content}
                                             </p>
                                           </div>
+                                          <Like postid = {props.data.post_id}/>
                                         </div>
                                       </div>
     </div>
