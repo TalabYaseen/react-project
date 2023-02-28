@@ -34,16 +34,27 @@
 
         // CREATE User
         public function createUser(){
-            $sqlQuery = "INSERT INTO
-                        ". $this->dbTable ."
+
+            //تشيك على الايميل  اذا كان المستخدم مسجل عندي في ايميل ولا لا 
+            //  اذا كان موجود المستخدم لا يخليه يسجل مره تانيه في نفس الايميل
+           
+            $oldData="SELECT * FROM users WHERE email = '$this->email' ";
+              $stmt = $this->conn->prepare($oldData);
+            $stmt->execute();
+              $checkEmail = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if($checkEmail == []){
+
+            $sqlQuery = "INSERT INTO ". $this->dbTable ." 
                     SET
                     first_name = :first_name, 
                     last_name = :last_name, 
                     password = :password, 
                     email = :email";
         
-            $stmt = $this->conn->prepare($sqlQuery);
-        
+                    $stmt = $this->conn->prepare($sqlQuery);
+                }
+
             // sanitize
             $this->first_name=htmlspecialchars(strip_tags($this->first_name));
             $this->last_name=htmlspecialchars(strip_tags($this->last_name));
@@ -96,7 +107,7 @@
                     last_name = :last_name, 
                     email = :email
                     WHERE 
-                        id = :id";
+                     id = :id";
         
             $stmt = $this->conn->prepare($sqlQuery);
         
@@ -110,7 +121,10 @@
             $stmt->bindParam(":last_name", $this->last_name);
             $stmt->bindParam(":email", $this->email);
             $stmt->bindParam(":id", $this->id);
-        
+        // test
+        // test
+        // test
+        // test
             if($stmt->execute()){
                return true;
             }

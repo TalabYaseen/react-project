@@ -10,7 +10,9 @@ import ProfileFrinds from './pages/ProfileFrinds';
 import SingleGroup from './pages/singleGroup';
 import { BrowserRouter as Router, Route, Link, Switch, Routes } from 'react-router-dom';
 
+
 function App() {
+  
   return (
     <>
       <Router>

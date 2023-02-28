@@ -22,12 +22,13 @@ export default function Register() {
   const [accept,setAccept]=useState(false)
   const [err , setErr]= useState(null);
   const navigate = useNavigate();
+
   const [data , setdata] = useState({
-    firstName : "",
-    lastName : "",
-    email : "",
-    password : "",
-    confirmPssword : "",
+      firstName : "",
+      lastName : "",
+      email : "",
+      password : "",
+      confirmPssword : "",
   });
   const handlechange = (e) => {
     setdata(prev=>({...prev,[e.target.name]:e.target.value}))
@@ -36,17 +37,11 @@ export default function Register() {
     const namereg = "^[a-zA-Z]{1,15}$"; 
     const passreg = "^.{8,}$";
     const emailreg = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$";
-    console.log(value);
-    console.log(errorfname  , errorlname , erroremail , errorpassword , errorconpassword)
+
+    // console.log(value);
+    // console.log(errorfname  , errorlname , erroremail , errorpassword , errorconpassword)
+
     switch (name) {
-      case 'lastName':
-      if (! (value.match(namereg))){
-        seterrornamemsg ('Name must contain just letters !')
-        setErrorslname(false)}
-      else {setErrorslname(true);
-        seterrornamemsg ('')
-      }
-      break;
       case 'firstName':
       if (! (value.match(namereg))){
         seterrornamemsg ('Name must contain just letters !')
@@ -55,6 +50,16 @@ export default function Register() {
         seterrornamemsg ('')
       }
       break;
+      
+      case 'lastName':
+      if (! (value.match(namereg))){
+        seterrornamemsg ('Name must contain just letters !')
+        setErrorslname(false)}
+      else {setErrorslname(true);
+        seterrornamemsg ('')
+      }
+      break;
+      
       case 'email': 
       if (! (value.match(emailreg))){
         setErrorsemailmsg('Wrong email !')

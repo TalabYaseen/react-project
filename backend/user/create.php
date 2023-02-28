@@ -14,6 +14,8 @@
     $user = new User($db);
     $data = json_decode(file_get_contents("php://input"));
 
+    // $user->first_name = $data->fname;
+    // $user->last_name = $data->lname;
     $user->first_name = $data->firstName;
     $user->last_name = $data->lastName;
     $user->password = $data->password;
