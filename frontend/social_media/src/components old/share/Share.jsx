@@ -3,10 +3,7 @@ import { useState } from "react";
 import axios from 'axios'
 import { MdPermMedia,MdLabelImportantOutline,MdOutlineMeetingRoom,MdEmojiEmotions } from 'react-icons/md';
 export default function Share() {
-<<<<<<< HEAD:frontend/social_media/src/components/share/Share.jsx
 
-      
-=======
   const [inputs , setInputs] = useState("");
   const current_ID = (JSON.parse(localStorage.getItem('user'))).id;
   const [file, setFile] = useState(null);
@@ -33,7 +30,7 @@ const handlePost = (e) => {
     const value = e.target.value;
     setInputs(value);
 }
->>>>>>> a235727a306475ba115fa2cd29b9e86aa0b61dc1:frontend/social_media/src/components old/share/Share.jsx
+
   return (
     <form className="form-outline w-100" onSubmit={handleImagePost}>
     <div className="share">

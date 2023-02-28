@@ -121,7 +121,10 @@
             $stmt->bindParam(":last_name", $this->last_name);
             $stmt->bindParam(":email", $this->email);
             $stmt->bindParam(":id", $this->id);
-        
+        // test
+        // test
+        // test
+        // test
             if($stmt->execute()){
                return true;
             }
