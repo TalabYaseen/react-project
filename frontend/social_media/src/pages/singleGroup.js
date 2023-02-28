@@ -1,10 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from '../components/navbar'
 import Post from '../components/Post'
 import Sidebar from '../components/sidebar'
 import Rightbar from '../components/rightbar'
 import WritePost from '../components/writePost'
+import { useState } from 'react';
+import axios from 'axios'
 function SingleGroup() {
+  localStorage.setItem("groupid",JSON.stringify("1"));
+  const groupid= JSON.parse(localStorage.getItem("groupid"));
+  const [posts , setPosts] = useState([]);
+  const [members , setmembers] = useState([]);
+  const [groupdata , setgroupdata] = useState({});
+  function getPosts(){
+    axios.get(`http://localhost/react-project/backend/post/groubposts.php?${groupid}`)
+    .then(response => {
+        setPosts(response.data.posts);
+        setmembers(response.data.members);
+        setgroupdata(response.data.groupdata);
+    })
+}
+  useEffect (
+    ()=>{
+      getPosts();
+    }
+  ,[])
+  console.log(groupdata,"groupdata");
   return (
     <div>
          <div>
@@ -13,40 +34,40 @@ function SingleGroup() {
          <Navbar/>
           <section>
             <div className="feature-photo">
-              <figure><img src="images/resources/timeline-4.jpg" alt="" /></figure>
+              <figure><img src={groupdata?require("../components/images/groups_pics/"+groupdata.image_cover):""} alt="" /></figure>
               <div className="add-btn">
-                <span>1.3k followers</span>
-                <a href="#" title data-ripple>Join Group</a>
+                <span>{members.length} Members</span>
+                {/* <a href="#" title data-ripple>Join Group</a> */}
               </div>
-              <form className="edit-phto">
-                <i className="fa fa-camera-retro" />
-                <label className="fileContainer">
+              {/* <form className="edit-phto"> */}
+                {/* <i className="fa fa-camera-retro" /> */}
+                {/* <label className="fileContainer">
                   Edit Cover Photo
                   <input type="file" />
-                </label>
-              </form>
+                </label> */}
+              {/* </form> */}
               <div className="container-fluid">
                 <div className="row merged">
                   <div className="col-lg-2 col-sm-3">
-                    <div className="user-avatar">
-                      <figure>
-                        <img src="images/resources/user-avatar2.jpg" alt="" />
-                        <form className="edit-phto">
+                    {/* <div className="user-avatar"> */}
+                      {/* <figure> */}
+                        {/* <img src="images/resources/user-avatar2.jpg" alt="" /> */}
+                        {/* <form className="edit-phto">
                           <i className="fa fa-camera-retro" />
                           <label className="fileContainer">
                             Edit Display Photo
                             <input type="file" />
                           </label>
                         </form>
-                      </figure>
-                    </div>
+                      </figure> */}
+                    {/* </div> */}
                   </div>
                   <div className="col-lg-10 col-sm-9">
                     <div className="timeline-info">
                       <ul>
                         <li className="admin-name">
-                          <h5>Amazon Shop</h5>
-                          <span>@amazonshop</span>
+                          <h5>{groupdata.name}</h5>
+                          {/* <span>@amazonshop</span> */}
                         </li>
                         <li>
                                     <a className href="/profile" title data-ripple> My Profile</a>
@@ -71,14 +92,14 @@ function SingleGroup() {
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="row" id="page-contents">
-                     <Sidebar/>
+                     {/* <Sidebar/> */}
                       <div className="col-lg-6">
-                      <WritePost/>
+                      {/* <WritePost/> */}
                         <div className="loadMore">
-                          <Post/>
+                          {/* <Post /> */}
                         </div>
                       </div>
-                      <Rightbar/>
+                      {/* <Rightbar/> */}
                     </div>	
                   </div>
                 </div>
