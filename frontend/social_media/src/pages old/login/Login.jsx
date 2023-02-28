@@ -5,8 +5,8 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 // import Container from 'react-bootstrap/Container';
 import InputGroup from 'react-bootstrap/InputGroup';
-import UserService from '../../apis/UserService';
 import { useNavigate } from "react-router-dom";
+import UserService from "../../apis/UserService";
 
 
 export default function Login() {
@@ -22,6 +22,7 @@ export default function Login() {
         if (res.data == "user not found"){
           console.log(res.data);
         }else {
+          
           localStorage.setItem("user",JSON.stringify(res.data));
           navigate("/profile");
         }
@@ -54,12 +55,14 @@ export default function Login() {
             <Form.Control type="password" aria-label="password" placeholder="password" name="password"/>
             </FloatingLabel>  
         </InputGroup>
+
         {/* {accept && <p style={{color:"red"}}>{erroremailmsg}</p>} */}
+
             <button type="submit" className="loginButton">Log In</button>
+
             <span className="loginForgot">Forgot Password?</span>
-            <button className="loginRegisterButton">
-              Create a New Account
-            </button>
+
+            <button className="loginRegisterButton"> Create a New Account </button>
           </div>
         </div>
       </div>

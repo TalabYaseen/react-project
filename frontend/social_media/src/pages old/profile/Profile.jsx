@@ -8,8 +8,8 @@ import { useState } from "react";
 export default function Profile() {
 
   const [userdata,setuserdata]= useState(JSON.parse(localStorage.getItem(('user'))));
-  // console.log(userdata);
   return (
+    
     <>
       <Topbar />
       <div className="profile">
