@@ -49,12 +49,14 @@ function SingleGroup() {
                           <span>@amazonshop</span>
                         </li>
                         <li>
-                          <a className="active" href="fav-page.html" title data-ripple>Page</a>
-                          <a className href="notifications.html" title data-ripple>Notifications</a>
-                          <a className href="inbox.html" title data-ripple>inbox</a>
-                          <a className href="insights.html" title data-ripple>insights</a>
-                          <a className href="fav-page.html" title data-ripple>posts</a>
-                          <a className href="page-likers.html" title data-ripple>likers</a>
+                                    <a className href="/profile" title data-ripple> My Profile</a>
+                                    <a className href="timeline-friends.html" title data-ripple>Friends</a>
+                                    <a className href="/Groups" title data-ripple>Groups</a>
+                                    <a className href="/EditProfile" title data-ripple>Edit Profile</a> 
+                                    <a className="active" href="/SingleGroup" title data-ripple>SingleGroup</a>
+                                    <a className href="/chat" title data-ripple>Chat</a>
+                                   
+                      
                         </li>
                       </ul>
                     </div>

@@ -1,35 +1,70 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+function Like(props) {
+  console.log(props.postid)
+  const [isliked,setisliked] = useState(false)
+  // تعريف ستات لتخزين عدد اللايكات على البوست
+  const [likes,setLikes] = useState(0)
+  // معرفة عدد اللايكات على البوست من الداتا بيس
+  const getLikes = (id) => {
+    const userid =  (JSON.parse(localStorage.getItem("user"))).id;
+    axios.get(`http://localhost/react-project/backend/post/likes.php?${id}?${userid}`)
+    .then(response =>{
+      setLikes (response.data.count);
+      console.log (response)
+      if (response.data.isliked == 'true'){
+        setisliked(true);
+        console.log("yes")
+      }else {
+        setisliked(false);
+        console.log("no")
+      }
+    })
+  }
 
-function Like() {
+
+  // تعريف ستات لتخزين عدد الكومنتات على البوست
+  const [comments,setcomments] = useState(0)
+  // معرفة عدد الكومنتات على البوست من الداتا بيس
+  const getcomments = (id) => {
+    axios.get(`http://localhost/react-project/backend/post/comments.php?${id}`)
+    .then(response =>{
+      setcomments(response.data);
+    })
+  }
+
+  useEffect (
+    ()=>{getcomments(props.postid)
+      getLikes(props.postid)
+    }
+    ,[]
+  )
+
+
   return (
     <div>
       <div className="we-video-info">
                                             <ul>
                                               <li>
-                                                <span className="views" data-toggle="tooltip" title="views">
-                                                  <i className="fa fa-eye" />
-                                                  <ins>1.2k</ins>
-                                                </span>
-                                              </li>
-                                              <li>
                                                 <span className="comment" data-toggle="tooltip" title="Comments">
                                                   <i className="fa fa-comments-o" />
-                                                  <ins>52</ins>
+                                                  <ins>{comments}</ins>
                                                 </span>
                                               </li>
                                               <li>
                                                 <span className="like" data-toggle="tooltip" title="like">
+
                                                   <i className="ti-heart" />
-                                                  <ins>2.2k</ins>
+                                                  <ins>{likes}</ins>
                                                 </span>
                                               </li>
-                                              <li>
+                                              {/* <li>
                                                 <span className="dislike" data-toggle="tooltip" title="dislike">
                                                   <i className="ti-heart-broken" />
                                                   <ins>200</ins>
                                                 </span>
-                                              </li>
-                                              <li className="social-media">
+                                              </li> */}
+                                              {/* <li className="social-media">
                                                 <div className="menu">
                                                   <div className="btn trigger"><i className="fa fa-share-alt" /></div>
                                                   <div className="rotater">
@@ -60,11 +95,11 @@ function Like() {
                                                     </div>
                                                   </div>
                                                 </div>
-                                              </li>
+                                              </li> */}
                                             </ul>
                                           </div>
     </div>
   )
 }
 
-export default Like
+export default Like;
