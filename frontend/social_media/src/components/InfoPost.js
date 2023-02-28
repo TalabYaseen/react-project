@@ -4,8 +4,13 @@ function InfoPost(props) {
   const deletePost = () => {
     
   }
-  const editPost = () => {
 
+  // this func make edite post appear
+  const editPost = () => {
+    console.log("editepost");
+    document.getElementById(`post${props.data.post_id}`).style.display = 'none';
+    document.getElementById(`editPostForm${props.data.post_id}`).style.display = 'block';
+    document.getElementById(`editPostBTN${props.data.post_id}`).style.display = 'none';
   }
   return (
     
@@ -18,7 +23,7 @@ function InfoPost(props) {
                                           <ins><a href="time-line.html" title>{props.data.first_name} {props.data.last_name}</a></ins>
                                           <span>published: {props.data.created_at}</span>
                                         </div>
-                                        {/* delete and edit post */}
+                                        {/* delete and edit post if this is your post*/}
                                         {(props.data.id == JSON.parse(localStorage.getItem("user")).id) ?
                                         <div>
                                           <button onClick={() => {deletePost(props.data.post_id)}}>Delete Your Post</button>

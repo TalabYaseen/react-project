@@ -1,43 +1,18 @@
-<?php
-    header("Access-Control-Allow-Origin: *");
-    header("Content-Type: application/json;");
-    
-    include_once '../config.php';
-    include_once './friend.php';
+<?
 
-    $database = new DB();
-    $db = $database->getConnection();
 
-    $friends = new Friend($db);
-    $id = json_decode(file_get_contents("php://input"));
-    $stmt = $friends->getFriends($id);
-    $itemCount = $stmt->rowCount();
-    if($itemCount > 0){
-        
-    //     $userArr = array();
-       
-        echo json_encode($stmt);
-        // echo ("good");
-        // die();
-    //     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-    //         extract($row);
-    //         $e = array(
-    //             "id" => $id,
-    //             "first_name" => $first_name,
-    //             "second_name" => $second_name,
-    //             "last_name" => $last_name,
-    //             "Occupation" => $Occupation,
-    //             "password" => $password,
-    //             "photo" => $photo,
-    //             "email" => $email
-    //         );
+// this sql get the users that sent you a friend request or you send them a friend request and the state of it is pinding
+$sql = "SELECT * FROM users WHERE ( users.id IN (SELECT friends.source_id as friend FROM friends WHERE friends.target_id = :user_id AND friends.status = 0 UNION SELECT friends.target_id FROM friends WHERE friends.source_id = :user_id AND friends.status = 0) );";
 
-    //         array_push($userArr, $e);
-    //     }
-    //     echo json_encode($userArr);
-    }
-    else{
-        echo json_encode('you dont have any friends');
-    }
+
+// this sql get the users that sent you a friend request or you send them a friend request and the state of it is pinding
+$sql = "SELECT * FROM users WHERE ( users.id IN (SELECT friends.source_id as friend FROM friends WHERE friends.target_id = :user_id AND friends.status = 0 UNION SELECT friends.target_id FROM friends WHERE friends.source_id = :user_id AND friends.status = 0) );";
+
+
+// this sql get the users that sent you a friend request or you send them a friend request and the state of it is pinding
+$sql = "SELECT * FROM users WHERE ( users.id IN (SELECT friends.source_id as friend FROM friends WHERE friends.target_id = :user_id AND friends.status = 0 ) );";
+
+
+
 
 ?>

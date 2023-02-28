@@ -24,7 +24,7 @@ switch ($method) {
         echo json_encode($posts);
         break;
 
-
+    
     case 'POST' :
         echo ($_POST["post_content"]);
         print_r($_FILES["file"]);

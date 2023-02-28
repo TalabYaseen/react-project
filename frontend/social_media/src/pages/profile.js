@@ -154,7 +154,6 @@ useEffect(()=>{
                             <Sidebar/>
                               <div className="col-lg-6">
                                 
-                                
                                 {/* Write post start*/}
                                 <WritePost userpic = {userdata.profile_pic} userid = {userdata.id}/>
                                 {/* Write post end*/}
