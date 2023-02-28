@@ -17,9 +17,11 @@ function App() {
     <>
       <Router>
           <Routes>
-            {/* <Route exact path="/" element={<Home/>}/> */}
-            <Route exact path="/profile" element={<Profile/>}/>
+            <Route exact path="/home" element={<Home/>}/>
             <Route exact path="/" element={<Profile/>}/>
+            <Route exact path="/Register" element={<Register/>}/>
+            <Route exact path="/Login" element={<Login/>}/>
+            <Route exact path="/profile" element={<Profile/>}/>
             <Route exact path="/Chat" element={<Chat/>}/>
             <Route exact path="/EditProfile" element={<EditProfile/>}/>
             <Route exact path="/ProfileFrinds" element={<ProfileFrinds/>}/>

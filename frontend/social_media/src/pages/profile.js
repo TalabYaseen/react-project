@@ -22,7 +22,7 @@ const Profile = () => {
   //   cover_pic:"",
   // }))
   const [userdata,setuserdata]=useState (JSON.parse(localStorage.getItem("user")))
-  console.log (userdata)
+  // console.log (userdata,"userdata")
 
   // function change cover photo start
   const  changecoverphoto = async (e) => {
@@ -33,9 +33,9 @@ const Profile = () => {
       const response = await axios.post(
         "http://localhost/react-project/backend/user/editecoverpic.php", formEditData
       );
-      console.log(response.data);
+      // console.log(response.data);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
     }
 
     var user =  JSON.parse(localStorage.getItem("user"));
@@ -57,7 +57,7 @@ const Profile = () => {
         );
         console.log(response.data);
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     var user =  JSON.parse(localStorage.getItem("user"));
     user.profile_pic = e.target.files[0].name;
@@ -83,7 +83,7 @@ useEffect(()=>{
   // getComments();
 } , [])
 
-  console.log(posts);
+  console.log(posts,"posts");
     return (
        
                 <div>
@@ -163,7 +163,7 @@ useEffect(()=>{
                                 {/* add post new box */}
                                 <div className="loadMore">
                                 {/*POSTS*/}
-                                {posts.map(e=><Post data={e}/>)}
+                                {posts.map(e => <Post data={e}/>)}
                                   
                                 </div>
                               </div>{/* centerl meta */}

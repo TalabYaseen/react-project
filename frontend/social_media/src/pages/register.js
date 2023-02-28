@@ -40,14 +40,14 @@ const Register = () => {
       const passreg = "^.{8,}$";
       const emailreg = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$";
       // console.log(value);
-      console.log(errorfname  , errorlname , erroremail , errorpassword , errorconpassword)
-      console.log(value)
-      console.log(errornamemsg)
+      // console.log(errorfname  , errorlname , erroremail , errorpassword , errorconpassword)
+      // console.log(value)
+      console.log(data)
 
 
 
     switch (name) {
-      case 'fname':
+      case 'firstName':
         if (! (value.match(namereg))){
           seterrornamemsg ('Name must contain just letters !')
           setErrorsfname(false)}
@@ -56,7 +56,7 @@ const Register = () => {
         }
       break;
 
-      case 'lname':
+      case 'lastName':
         if (! (value.match(namereg))){
           seterrornamemsg ('Name must contain just letters !')
           setErrorslname(false)}
@@ -140,14 +140,14 @@ const Register = () => {
             <h2 className="log-title">Register</h2>
             <form onSubmit={handlesubmit}>
               <div className="form-group">	
-                <input name="fname"  onChange={handlechange} type="text" id="input" required="required" />
+                <input name="firstName"  onChange={handlechange} type="text" id="input" required="required" />
                 <label   className="control-label" htmlFor="input">First name</label><i className="mtrl-select" />
 
                   {accept && <p style={{color:"red"}}>{errornamemsg}</p>}
               </div>
 
               <div className="form-group">	
-              <input name="lname"  onChange={handlechange} type="text" id="input" required="required" />
+              <input name="lastName"  onChange={handlechange} type="text" id="input" required="required" />
               <label  className="control-label" htmlFor="input">Last name</label><i className="mtrl-select" />
 
               {/* {accept && <p style={{color:"red"}}>{errorlnamemsg}</p>} */}
