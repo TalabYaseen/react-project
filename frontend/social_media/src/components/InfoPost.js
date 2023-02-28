@@ -1,7 +1,14 @@
 import React from 'react'
 import Like from './Like'
 function InfoPost(props) {
+  const deletePost = () => {
+    
+  }
+  const editPost = () => {
+
+  }
   return (
+    
     <div>
         <div className="friend-info">
                                         <figure>
@@ -11,6 +18,13 @@ function InfoPost(props) {
                                           <ins><a href="time-line.html" title>{props.data.first_name} {props.data.last_name}</a></ins>
                                           <span>published: {props.data.created_at}</span>
                                         </div>
+                                        {/* delete and edit post */}
+                                        {(props.data.id == JSON.parse(localStorage.getItem("user")).id) ?
+                                        <div>
+                                          <button onClick={() => {deletePost(props.data.post_id)}}>Delete Your Post</button>
+                                          <button id={`editPostBTN${props.data.post_id}`} onClick={() => {editPost(props.data.post_id)}}>edite</button>
+                                        </div>
+                                        : null }
                                         <div className="post-meta">
                                           {props.data.post_image && <img src={require("../components/images/posts-pics/"+props.data.post_image)} alt="" />}
                                           <div className="description">

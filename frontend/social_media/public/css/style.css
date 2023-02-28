@@ -1490,7 +1490,12 @@ form button {
 }
 
 .we-video-info > ul li span.like {
-    color: green;
+    color: rgb(207, 0, 0);
+    cursor: pointer;
+    transition: all 0.2s linear 0s;
+}
+.we-video-info > ul li span.notlike {
+    color: rgb(97, 94, 94);
     cursor: pointer;
     transition: all 0.2s linear 0s;
 }

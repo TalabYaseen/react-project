@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 function Like(props) {
-  console.log(props.postid)
+  const userid =  (JSON.parse(localStorage.getItem("user"))).id;
   const [isliked,setisliked] = useState(false)
   // تعريف ستات لتخزين عدد اللايكات على البوست
   const [likes,setLikes] = useState(0)
   // معرفة عدد اللايكات على البوست من الداتا بيس
   const getLikes = (id) => {
-    const userid =  (JSON.parse(localStorage.getItem("user"))).id;
     axios.get(`http://localhost/react-project/backend/post/likes.php?${id}?${userid}`)
     .then(response =>{
       setLikes (response.data.count);
@@ -34,13 +33,30 @@ function Like(props) {
   }
 
   useEffect (
-    ()=>{getcomments(props.postid)
-      getLikes(props.postid)
+    ()=>{getcomments(props.postid);
+      getLikes(props.postid);
     }
     ,[]
   )
 
-
+// this function add or remove like start
+const handellike = () => {
+  console.log(userid,isliked,props.postid)
+  if (isliked) {
+    axios.get(`http://localhost/react-project/backend/post/deletelike.php?${userid}?${props.postid}`)
+    .then(response =>{
+      getLikes(props.postid);
+    })
+  }else {
+    axios.get(`http://localhost/react-project/backend/post/addlike.php?${userid}?${props.postid}`)
+    .then(response =>{
+      getLikes(props.postid);
+     ;
+    })
+    
+  }
+}
+// this function add or remove like end
   return (
     <div>
       <div className="we-video-info">
@@ -51,8 +67,8 @@ function Like(props) {
                                                   <ins>{comments}</ins>
                                                 </span>
                                               </li>
-                                              <li>
-                                                <span className="like" data-toggle="tooltip" title="like">
+                                              <li onClick={handellike}>
+                                                <span className={isliked?"like":"notlike"} data-toggle="tooltip" title="like">
 
                                                   <i className="ti-heart" />
                                                   <ins>{likes}</ins>
