@@ -76,8 +76,6 @@ function SingleGroup() {
                                     <a className href="/EditProfile" title data-ripple>Edit Profile</a> 
                                     <a className="active" href="/SingleGroup" title data-ripple>SingleGroup</a>
                                     <a className href="/chat" title data-ripple>Chat</a>
-                                   
-                      
                         </li>
                       </ul>
                     </div>
