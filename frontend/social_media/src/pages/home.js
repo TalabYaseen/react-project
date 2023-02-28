@@ -5,9 +5,25 @@ import Navbar from '../components/navbar';
 import ResponsiveNav from '../components/responsivenav';
 import WritePost from '../components/writePost';
 import Post from '../components/Post';
+import { useState ,useEffect} from "react";
+import axios from 'axios';
 
 const Home = () => {
- 
+   // make a state to store the requested posts data
+   const [posts , setPosts] = useState([]);
+   // get all posts function start
+   function getPosts(){
+     axios.get(`http://localhost/react-project/backend/post/posts.php`)
+     .then(response => {
+         setPosts(response.data);
+     })
+ }
+ // get all posts function end
+ // using hook to store all posts and comments data and rerender the page
+ useEffect(()=>{
+   getPosts();
+   // getComments();
+ } , [])
           return (
               <div className="theme-layout">
                 <Navbar/>
@@ -24,7 +40,7 @@ const Home = () => {
                               {/* add post new box */}
                               <div className="loadMore">
                               {/*POST*/}
-                                <Post/>
+                              {posts.map(e => <Post data={e}/>)}
                                 
                               </div>
                             </div>{/* centerl meta */}
