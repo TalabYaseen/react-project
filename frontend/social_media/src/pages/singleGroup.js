@@ -15,6 +15,7 @@ function SingleGroup() {
   function getPosts(){
     axios.get(`http://localhost/react-project/backend/post/groubposts.php?${groupid}`)
     .then(response => {
+      console.log(response.data,"response.data")
         setPosts(response.data.posts);
         setmembers(response.data.members);
         setgroupdata(response.data.groupdata);
@@ -34,9 +35,9 @@ function SingleGroup() {
          <Navbar/>
           <section>
             <div className="feature-photo">
-              <figure><img src={groupdata?require("../components/images/groups_pics/"+groupdata.image_cover):""} alt="" /></figure>
+              <figure><img src={groupdata?require("../components/images/groups_pics/"+groupdata.image_cover):"../components/images/groups_pics/coverphotoplaceholder.png"} alt="" /></figure>
               <div className="add-btn">
-                <span>{members.length} Members</span>
+                {/* <span>{members.length} Members</span> */}
                 {/* <a href="#" title data-ripple>Join Group</a> */}
               </div>
               {/* <form className="edit-phto"> */}
@@ -66,7 +67,7 @@ function SingleGroup() {
                     <div className="timeline-info">
                       <ul>
                         <li className="admin-name">
-                          <h5>{groupdata.name}</h5>
+                          {/* <h5>{groupdata.name}</h5> */}
                           {/* <span>@amazonshop</span> */}
                         </li>
                         <li>
