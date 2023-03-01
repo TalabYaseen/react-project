@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function ShowComment(props) {
-  console.log(props.data,"data");
+  // console.log(props.data,"data");
   const [allcommentsforthispost,setallcommentsforthispost] = useState([]);
   const getallcommentsforthispost = () => {
     axios.get(`http://localhost/react-project/backend/post/allcommentstopost.php?${props.data.post_id}`)
@@ -15,14 +15,14 @@ function ShowComment(props) {
       getallcommentsforthispost();
     },[]
   )
-  console.log(allcommentsforthispost,"allcommentsforthispost")
+  // console.log(allcommentsforthispost,"allcommentsforthispost")
   return (
     <>
     {allcommentsforthispost.map(singlecommint=>
       <div>
        <li>
                                             <div className="comet-avatar">
-                                              <img src={singlecommint.profile_pic?require("../components/images/profile_pics/"+singlecommint.profile_pic):require("../components/images/profile_pics/coverphotoplaceholder.png")} alt="" />
+                                              <img src={singlecommint.profile_pic?require("../components/images/profile_pics/"+singlecommint.profile_pic):require("../components/images/profile_pics/coverphotoplaceholder.png")} alt=""  style={{width: "35px" , height : "35px"}}/>
                                             </div>
                                             <div className="we-comment">
                                               <div className="coment-head">

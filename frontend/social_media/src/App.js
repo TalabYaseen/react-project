@@ -8,6 +8,8 @@ import Chat from './pages/Chat';
 import Groups from './pages/groups';
 import ProfileFrinds from './pages/ProfileFrinds';
 import SingleGroup from './pages/singleGroup';
+import FindFriends from './pages/FindFriends';
+import Elseprofile from './pages/Elseprofile';
 import { BrowserRouter as Router, Route, Link, Switch, Routes } from 'react-router-dom';
 
 
@@ -18,16 +20,14 @@ function App() {
       <Router>
           <Routes>
             <Route exact path="/home" element={<Home/>}/>
-            <Route exact path="/" element={<Profile/>}/>
             <Route exact path="/Register" element={<Register/>}/>
             <Route exact path="/Login" element={<Login/>}/>
             <Route exact path="/profile" element={<Profile/>}/>
+            <Route  path="/Elseprofile/:id" element={<Elseprofile/>}/>
             <Route exact path="/Chat" element={<Chat/>}/>
-            <Route exact path="/EditProfile" element={<EditProfile/>}/>
-            <Route exact path="/ProfileFrinds" element={<ProfileFrinds/>}/>
             <Route exact path="/Groups" element={<Groups/>}/>
-            <Route exact path="/Chat" element={<Chat/>}/>
             <Route exact path="/SingleGroup" element={<SingleGroup/>}/>
+            <Route exact path="/findfriends" element={<FindFriends/>}/>
           </Routes>
       </Router>
     </>

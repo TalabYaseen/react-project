@@ -55,6 +55,7 @@ Last change:  4/september/18
 /*===============
 ***General Styling 
 ===============*/
+
 html,body{
 	font-family: "Muli", "Segoe Ui";
 }
@@ -94,8 +95,8 @@ button:focus {
 }
 
 img {
-    height: auto;
-    max-width: 100%;
+    height: 50px;
+    width: 50px;
 }
 
 .theme-layout {
@@ -694,6 +695,7 @@ header.sticky {
     cursor: pointer;
     display: inline-block;
     vertical-align: middle;
+    margin-right: 200px;
     position: relative;
     line-height: 60px;
 }
@@ -1371,7 +1373,7 @@ form button {
     display: inline-block;
     padding-left: 10px;
     vertical-align: middle;
-    width: 90%;
+    width: 80%;
 }
 
 .friend-name > ins {
@@ -1794,9 +1796,13 @@ for some reason nth-child(1) is always busy and elements starting from 2 */
 
 .comet-avatar {
     display: table-cell;
-    max-width: 7.6%;
     vertical-align: top;
+    max-width: 7.6%;
     width: 7.6%;
+}
+.comet-avatar img{
+    width : "20px";
+    height : "20px";
 }
 
 .we-comment {
@@ -1972,6 +1978,7 @@ li.post-comment .comet-avatar {
     position: absolute;
     right: 0;
     background: none;
+    color: #000;
 }
 
 

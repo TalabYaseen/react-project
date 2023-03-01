@@ -15,6 +15,7 @@ function SingleGroup() {
   function getPosts(){
     axios.get(`http://localhost/react-project/backend/post/groubposts.php?${groupid}`)
     .then(response => {
+      console.log(response.data,"response.data")
         setPosts(response.data.posts);
         setmembers(response.data.members);
         setgroupdata(response.data.groupdata);
@@ -26,6 +27,7 @@ function SingleGroup() {
     }
   ,[])
   console.log(groupdata,"groupdata");
+
   return (
     <div>
          <div>
@@ -34,7 +36,7 @@ function SingleGroup() {
          <Navbar/>
           <section>
             <div className="feature-photo">
-              <figure><img src={groupdata?require("../components/images/groups_pics/"+groupdata.image_cover):""} alt="" /></figure>
+              <figure><img src={groupdata.image_cover?require("../components/images/groups_pics/"+groupdata.image_cover):require("../components/images/groups_pics/coverphotoplaceholder.png")} alt="" /></figure>
               <div className="add-btn">
                 <span>{members.length} Members</span>
                 {/* <a href="#" title data-ripple>Join Group</a> */}
@@ -76,8 +78,6 @@ function SingleGroup() {
                                     <a className href="/EditProfile" title data-ripple>Edit Profile</a> 
                                     <a className="active" href="/SingleGroup" title data-ripple>SingleGroup</a>
                                     <a className href="/chat" title data-ripple>Chat</a>
-                                   
-                      
                         </li>
                       </ul>
                     </div>
@@ -92,14 +92,14 @@ function SingleGroup() {
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="row" id="page-contents">
-                     {/* <Sidebar/> */}
+                     <Sidebar/>
                       <div className="col-lg-6">
-                      {/* <WritePost/> */}
+                      <WritePost/>
                         <div className="loadMore">
-                          {/* <Post /> */}
+                        {posts.map(e => <Post data={e}/>)}
                         </div>
                       </div>
-                      {/* <Rightbar/> */}
+                      <Rightbar/>
                     </div>	
                   </div>
                 </div>
@@ -111,8 +111,8 @@ function SingleGroup() {
             <div className="container">
               <div className="row">
                 <div className="col-md-12">
-                  <span className="copyright"><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></span>
-                  <i><img src="images/credit-cards.png" alt="" /></i>
+                  {/* <span className="copyright"><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></span> */}
+                  {/* <i><img src="images/credit-cards.png" alt="" /></i> */}
                 </div>
               </div>
             </div>
