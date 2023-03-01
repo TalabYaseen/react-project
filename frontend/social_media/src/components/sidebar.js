@@ -21,7 +21,7 @@ const Sidebar = () => {
               </li>
               <li>
                 <i className="ti-bell" />
-                <a href="notifications.html" title>Notifications or Reqiset Frind</a>
+                <a href="notifications.html" title> Reqiset Frind</a>
               </li>
               <li>
                 <i className="ti-power-off" />

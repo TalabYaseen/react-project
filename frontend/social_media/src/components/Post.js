@@ -10,23 +10,23 @@ function Post(props) {
   return (
     <div>
         <div className="central-meta item">
-                                    <div className="user-post">
-                                    <InfoPost data = {props.data}/>
-                                      <div className="coment-area">
-                                        <ul className="we-comet">
-                                      {/*  COMMENT*/ }
-  
-                                         <ShowComment data = {props.data}/>
-  
-                                      {/*END COMMENT*/ }
-  
-                                       {/* INPUT COMMENT*/ }
-                                          <WriteComment data = {props.data}/>
-                                      {/* END INPUT COMMENT*/ }
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
+          <div className="user-post">
+          <InfoPost data = {props.data}/>
+            <div className="coment-area">
+              <ul className="we-comet">
+            {/*  COMMENT*/ }
+
+                <ShowComment data = {props.data}/>
+
+            {/*END COMMENT*/ }
+
+              {/* INPUT COMMENT*/ }
+                <WriteComment data = {props.data}/>
+            {/* END INPUT COMMENT*/ }
+              </ul>
+            </div>
+          </div>
+        </div>
     </div>
   )
 }
