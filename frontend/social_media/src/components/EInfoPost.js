@@ -1,6 +1,6 @@
 import React from 'react'
 import Like from './Like'
-function InfoPost(props) {
+function EInfoPost(props) {
   console.log(props.data,"props.data.profile_pic")
   // this func make edite post appear
   const editPost = (id,content) => {
@@ -15,10 +15,10 @@ function InfoPost(props) {
     <div>
         <div className="friend-info">
                                         <figure>
-                                          <img src={props.data.profile_pic?require("../components/images/profile_pics/"+props.data.profile_pic):require("../components/images/profile_pics/coverphotoplaceholder.png")} alt="" />
+                                          <img src={props.userdata.profile_pic?require("../components/images/profile_pics/"+props.userdata.profile_pic):require("../components/images/profile_pics/coverphotoplaceholder.png")} alt="" />
                                         </figure>
                                         <div className="friend-name">
-                                          <ins><a href="time-line.html" title>{props.data.first_name} {props.data.last_name}</a></ins>
+                                          <ins><a href="time-line.html" title>{props.userdata.first_name} {props.userdata.last_name}</a></ins>
                                           <span>published: {props.data.created_at}</span>
                                         </div>
                                         {/* delete and edit post if this is your post*/}
@@ -42,4 +42,4 @@ function InfoPost(props) {
   )
 }
 
-export default InfoPost
+export default EInfoPost

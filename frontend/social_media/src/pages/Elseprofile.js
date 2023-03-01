@@ -7,7 +7,7 @@ import Like from '../components/Like';
 import InfoPost from '../components/InfoPost';
 import ShowComment from '../components/ShowComment';
 import WriteComment from '../components/WriteComment';
-import Post from '../components/Post';
+import EPost from '../components/EPost';
 import axios from "axios";
 import { useParams } from 'react-router';
 
@@ -38,7 +38,7 @@ const Elseprofile = () => {
   useEffect(()=>{
     getuserdata();
     getrelation();
-    // getPosts();
+    getPosts();
   } , [])
   console.log(userdata);
   console.log(state);
@@ -110,9 +110,13 @@ const removeFriend = () => {
 
 }
 
-
-{console.log("elseprofile")}
-
+const [posts , setPosts] = useState([]);
+function getPosts(){
+  axios.get(`http://localhost/react-project/backend/post/posts.php?${friendId}`)
+  .then(response => {
+      setPosts(response.data);
+  })
+}
   return (
 
     <div>
@@ -163,7 +167,8 @@ const removeFriend = () => {
                     {/* add post new box */}
                     <div className="loadMore">
 {/*POSTS*/}
-                    {/* {posts.map(e => <Post data={e} />)} */}
+                    {(state === "friend") ? posts.map(e => <EPost data={e} userdata={userdata}/>):<></>}
+                    {posts.map(e => <EPost data={e} userdata={userdata}/>)}
                       
                     </div>
                   </div>{/* centerl meta */}

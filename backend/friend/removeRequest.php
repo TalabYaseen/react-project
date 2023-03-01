@@ -18,14 +18,12 @@ $user = json_decode(file_get_contents('php://input'));
 
 
 
-$sql = "DELETE FROM friends WHERE user_id = :user_id and friend_id = :friend_id ";
+$sql = "DELETE FROM friends WHERE (user_id = :user_id and friend_id = :friend_id) OR (user_id = :friend_id and user_id = :friend_id) ";
 
 $stmt =$db->prepare($sql);
 $stmt->bindParam(':user_id', $user->user_id);
 $stmt->bindParam(':friend_id', $user->friend_id);
 $stmt->execute();
-
-// print_r($path);
 
 if($stmt->execute()){
     $response = ['status'=>1,'message'=>'Record deleted successfully.'];
