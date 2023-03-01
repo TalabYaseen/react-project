@@ -6,6 +6,7 @@ import Rightbar from '../components/rightbar'
 import WritePost from '../components/writePost'
 import { useState } from 'react';
 import axios from 'axios'
+
 function SingleGroup() {
   localStorage.setItem("groupid",JSON.stringify("1"));
   const groupid= JSON.parse(localStorage.getItem("groupid"));

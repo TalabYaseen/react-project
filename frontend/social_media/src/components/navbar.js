@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const Navbar = (props) => {
@@ -13,6 +14,9 @@ const Navbar = (props) => {
                 <div className="user-img">
                 <a href='/profile'>   <img src={userdata.profile_pic?require("../components/images/profile_pics/"+userdata.profile_pic):require("../components/images/profile_pics/coverphotoplaceholder.png")} alt=""  />  </a>
                 </div>
+                <Link to="/home">
+                Home
+                </Link>
             </div>
          </div>
     );

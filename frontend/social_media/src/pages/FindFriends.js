@@ -5,6 +5,7 @@ import Rightbar from '../components/rightbar'
 import Sidebar from '../components/sidebar'
 import CreateGroup from '../components/CreateGroup'
 
+
 function FindFriends() {
   return (
     <div>
