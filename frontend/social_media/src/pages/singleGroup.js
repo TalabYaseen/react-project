@@ -27,6 +27,7 @@ function SingleGroup() {
     }
   ,[])
   console.log(groupdata,"groupdata");
+
   return (
     <div>
          <div>
@@ -35,9 +36,9 @@ function SingleGroup() {
          <Navbar/>
           <section>
             <div className="feature-photo">
-              <figure><img src={groupdata?require("../components/images/groups_pics/"+groupdata.image_cover):"../components/images/groups_pics/coverphotoplaceholder.png"} alt="" /></figure>
+              <figure><img src={groupdata.image_cover?require("../components/images/groups_pics/"+groupdata.image_cover):require("../components/images/groups_pics/coverphotoplaceholder.png")} alt="" /></figure>
               <div className="add-btn">
-                {/* <span>{members.length} Members</span> */}
+                <span>{members.length} Members</span>
                 {/* <a href="#" title data-ripple>Join Group</a> */}
               </div>
               {/* <form className="edit-phto"> */}
@@ -67,7 +68,7 @@ function SingleGroup() {
                     <div className="timeline-info">
                       <ul>
                         <li className="admin-name">
-                          {/* <h5>{groupdata.name}</h5> */}
+                          <h5>{groupdata.name}</h5>
                           {/* <span>@amazonshop</span> */}
                         </li>
                         <li>
@@ -91,14 +92,14 @@ function SingleGroup() {
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="row" id="page-contents">
-                     {/* <Sidebar/> */}
+                     <Sidebar/>
                       <div className="col-lg-6">
-                      {/* <WritePost/> */}
+                      <WritePost/>
                         <div className="loadMore">
-                          {/* <Post /> */}
+                        {posts.map(e => <Post data={e}/>)}
                         </div>
                       </div>
-                      {/* <Rightbar/> */}
+                      <Rightbar/>
                     </div>	
                   </div>
                 </div>
@@ -110,8 +111,8 @@ function SingleGroup() {
             <div className="container">
               <div className="row">
                 <div className="col-md-12">
-                  <span className="copyright"><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></span>
-                  <i><img src="images/credit-cards.png" alt="" /></i>
+                  {/* <span className="copyright"><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></span> */}
+                  {/* <i><img src="images/credit-cards.png" alt="" /></i> */}
                 </div>
               </div>
             </div>

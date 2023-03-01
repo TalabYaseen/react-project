@@ -1,16 +1,14 @@
 import React from 'react'
 import Like from './Like'
 function InfoPost(props) {
-  const deletePost = () => {
-    
-  }
 
   // this func make edite post appear
-  const editPost = () => {
-    console.log("editepost");
-    document.getElementById(`post${props.data.post_id}`).style.display = 'none';
-    document.getElementById(`editPostForm${props.data.post_id}`).style.display = 'block';
-    document.getElementById(`editPostBTN${props.data.post_id}`).style.display = 'none';
+  const editPost = (id,content) => {
+    // console.log("editepost");
+    // document.getElementById(`post${props.data.post_id}`).style.display = 'none';
+    // document.getElementById(`editPostForm${props.data.post_id}`).style.display = 'block';
+    // document.getElementById(`editPostBTN${props.data.post_id}`).style.display = 'none';
+    props.choosePostToEdit(id,content);
   }
   return (
     
@@ -26,8 +24,8 @@ function InfoPost(props) {
                                         {/* delete and edit post if this is your post*/}
                                         {(props.data.id == JSON.parse(localStorage.getItem("user")).id) ?
                                         <div>
-                                          <button onClick={() => {deletePost(props.data.post_id)}}>Delete Your Post</button>
-                                          <button id={`editPostBTN${props.data.post_id}`} onClick={() => {editPost(props.data.post_id)}}>edite</button>
+                                          {/* <button onClick={() => {deletePost(props.data.post_id)}}>Delete Your Post</button> */}
+                                          <button id={`editPostBTN${props.data.post_id}`} onClick={() => {editPost(props.data.post_id,props.data.content)}}>edite</button>
                                         </div>
                                         : null }
                                         <div className="post-meta">
