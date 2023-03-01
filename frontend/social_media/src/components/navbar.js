@@ -6,7 +6,7 @@ const Navbar = () => {
         <div className="topbar stick">
             {/* logo  */}
             <div className="logo">
-            <a title href="newsfeed.html"><img src="images/logo.png" alt="" /></a>
+            <a title href="newsfeed.html"><img src="images/logo.png" alt="" style={{width:'150px'}} /></a>
             </div>
 
             <div className="top-area">
@@ -22,7 +22,7 @@ const Navbar = () => {
                         </form>
                     </div>
                     </li>
-                    <li><a href="/" title="Home" data-ripple><i className="ti-home" /></a></li>
+                    <li><a href="/home" title="Home" data-ripple><i className="ti-home" /></a></li>
                     <li>
 
                     <a href="#" title="Notification" data-ripple>

@@ -1,0 +1,25 @@
+.theme-layout .feature-photo .cover{
+    width: 100% !important;
+    height: 500px !important;  
+}
+
+.avatar{
+    width: 100% !important;
+    height: 200px !important;  
+}
+
+.post_img{
+    height: 30 !important;
+    width: 30 !important;
+    border-radius: 30 !important;
+}
+
+.new-postbox.write_post{
+    height: 30 !important;
+    width: 30 !important;
+    border-radius: 30 !important;
+}
+
+.mtr-btn{
+    background-color: #B20000;
+}
