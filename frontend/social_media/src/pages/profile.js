@@ -11,6 +11,7 @@ import Post from '../components/Post';
 import axios from "axios";
 
 const Profile = () => {
+
   // localStorage.setItem("user", JSON.stringify({
   //   id:7,
   //   first_name:"talab",
@@ -91,8 +92,8 @@ const choosePostToEdit = (id,content) => {
   // document.getElementById(`post`).style.display = 'none';
   document.getElementById(`editPostForm`).style.display = 'block';
   document.getElementById(`editPostBTN`).style.display = 'none';
-  console.log(id);
-  console.log(content);
+  seteditpostid(id);
+  seteditpostcontent(content);
 };
 
 // func to save changes on certin post
@@ -100,7 +101,7 @@ const handleEditPostSubmit  = async (e) => {
   e.preventDefault();
   const formEditData = new FormData();
   formEditData.append("post_content", inputs['post_content']);
-  formEditData.append("post_id", inputs['post_id']);
+  formEditData.append("post_id", editpostid);
   formEditData.append("file", file);
   console.log(formEditData);
   try {
@@ -108,7 +109,7 @@ const handleEditPostSubmit  = async (e) => {
       "http://localhost/react-project/backend/post/postEdit.php", formEditData
     );
     console.log(response.data);
-    window.location.assign('/home');
+    // window.location.assign('/home');
   } catch (error) {
     console.error(error);
   }
@@ -131,7 +132,7 @@ const handleEditPost = (id) => {
     const [inputs , setInputs] = useState("");
     const [file, setFile] = useState(null);
 
-  console.log(posts,"posts");
+  // console.log(file,"file");
     return (
        
                 <div>

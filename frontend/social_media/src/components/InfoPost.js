@@ -25,7 +25,7 @@ function InfoPost(props) {
                                         {(props.data.id == JSON.parse(localStorage.getItem("user")).id) ?
                                         <div>
                                           {/* <button onClick={() => {deletePost(props.data.post_id)}}>Delete Your Post</button> */}
-                                          <button id={`editPostBTN${props.data.post_id}`} onClick={() => {editPost(props.data.post_id,props.data.content)}}>edite</button>
+                                          <button id={`editPostBTN`} onClick={() => {editPost(props.data.post_id,props.data.content)}}>edite</button>
                                         </div>
                                         : null }
                                         <div className="post-meta">
