@@ -10,7 +10,10 @@ function Editprofile() {
   var data = localStorage.getItem('user');
      data = JSON.parse(data);
   useEffect(()=>{
-     
+    //  update
+    //  update
+    //  update
+    //  update
      setUser((data));
      console.log(data,"data");
   },[])
