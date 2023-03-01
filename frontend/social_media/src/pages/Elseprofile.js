@@ -117,6 +117,7 @@ function getPosts(){
       setPosts(response.data);
   })
 }
+console.log(state,"state")
   return (
 
     <div>
@@ -167,7 +168,7 @@ function getPosts(){
                     {/* add post new box */}
                     <div className="loadMore">
 {/*POSTS*/}
-                    {(state === "friend") ? posts.map(e => <EPost data={e} userdata={userdata}/>):<></>}
+                    {/* {(state === "friend") ? posts.map(e => <EPost data={e} userdata={userdata}/>):<></>} */}
                     {posts.map(e => <EPost data={e} userdata={userdata}/>)}
                       
                     </div>

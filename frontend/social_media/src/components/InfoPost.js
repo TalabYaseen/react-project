@@ -1,15 +1,19 @@
 import React from 'react'
 import Like from './Like'
 import { AiFillEdit } from 'react-icons/ai';
+import axios from 'axios';
 function InfoPost(props) {
-  console.log(props.data,"props.data.profile_pic")
+  // console.log(props.data,"props.data.profile_pic")
   // this func make edite post appear
   const editPost = (id,content) => {
-    // console.log("editepost");
-    // document.getElementById(`post${props.data.post_id}`).style.display = 'none';
-    // document.getElementById(`editPostForm${props.data.post_id}`).style.display = 'block';
-    // document.getElementById(`editPostBTN${props.data.post_id}`).style.display = 'none';
     props.choosePostToEdit(id,content);
+    console.log(id,content)
+  }
+  const deletePost = () => {
+    console.log("deletepost");
+    axios.delete(`http://localhost/react-project/backend/post/posts.php?${props.data.post_id}`).then(function(response){
+    console.log (response.data);
+    })
   }
   const deletePost = () => {
     
@@ -19,16 +23,16 @@ function InfoPost(props) {
     <div>
       <div className="friend-info">
         <figure>
-          <img src={props.data.profile_pic ? require("../components/images/profile_pics/" + props.data.profile_pic) : require("../components/images/profile_pics/coverphotoplaceholder.png")} alt="" />
+          <img src={JSON.parse(localStorage.getItem("user")).profile_pic ? require("../components/images/profile_pics/" + JSON.parse(localStorage.getItem("user")).profile_pic ) : require("../components/images/profile_pics/coverphotoplaceholder.png")} alt="" />
         </figure>
         <div className="friend-name">
-          <ins><a href="time-line.html" title>{props.data.first_name} {props.data.last_name}</a></ins>
+          <ins><a title>{JSON.parse(localStorage.getItem("user")).first_name} {JSON.parse(localStorage.getItem("user")).last_name}</a></ins>
           <span>published: {props.data.created_at}</span>
           {/* delete and edit post */}
-          {(props.data.id == JSON.parse(localStorage.getItem("user")).id) ?
+          {(JSON.parse(localStorage.getItem("user")).id == JSON.parse(localStorage.getItem("user")).id) ?
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-              <div> <button onClick={() => { deletePost(props.data.post_id) }}><i class="fa fa-trash" aria-hidden="true" style={{ color: "black", fontSize: '20px', marginLeft: '10px' }} /></button></div>
-              <div>     <button id={`editPostBTN${props.data.post_id}`} onClick={() => { editPost(props.data.post_id) }}> <AiFillEdit style={{ color: "black", fontSize: '20px' }} />
+              <div> <button onClick={() => { deletePost(props.data.post_id) }} style={{background:'none',border:'none'}}><i class="fa fa-trash" aria-hidden="true" style={{ color: "black", fontSize: '30px', marginLeft: '10px' }} /></button></div>
+              <div>     <button id={`editPostBTN`} onClick={() => { editPost(props.data.post_id,props.data.content) }} style={{background:'none',border:'none'}}> <AiFillEdit style={{ color: "black", fontSize: '30px' }} />
              
               </button>
 

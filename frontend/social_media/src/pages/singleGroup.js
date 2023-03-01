@@ -36,7 +36,7 @@ function SingleGroup() {
          <Navbar/>
           <section>
             <div className="feature-photo">
-              <figure><img src={groupdata.image_cover?require("../components/images/groups_pics/"+groupdata.image_cover):require("../components/images/groups_pics/coverphotoplaceholder.png")} alt="" /></figure>
+              <figure><img src={groupdata.image_cover?require("../components/images/groups_pics/"+groupdata.image_cover):require("../components/images/groups_pics/coverphotoplaceholder.png")} alt="" className='cover'/></figure>
               <div className="add-btn">
                 <span>{members.length} Members</span>
                 {/* <a href="#" title data-ripple>Join Group</a> */}
