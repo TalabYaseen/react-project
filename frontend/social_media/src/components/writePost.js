@@ -42,25 +42,13 @@ const WritePost = (props) => {
                                               </label>
                                             </li> */}
                                             <li>
-                                              <i className="fa fa-image" style={{color:"blue"}}/>
+                                              <i className="fa fa-image" style={{color:"black" , fontSize:"25px" }}/>
                                               <label className="fileContainer">
                                                 <input type="file" onChange={(e)=>setpostimg(e.target.files[0])}/>
                                               </label>
                                             </li>
-                                            {/* <li>
-                                              <i className="fa fa-video-camera" />
-                                              <label className="fileContainer">
-                                                <input type="file" />
-                                              </label>
-                                            </li> */}
-                                            {/* <li>
-                                              <i className="fa fa-camera" />
-                                              <label className="fileContainer">
-                                                <input type="file" />
-                                              </label>
-                                            </li> */}
                                             <li>
-                                              <button type="submit">Post</button>
+                                              <button type="submit" style={{width:"70px"}}>Post</button>
                                             </li>
                                           </ul>
                                         </div>

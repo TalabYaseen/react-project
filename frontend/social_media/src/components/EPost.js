@@ -35,4 +35,4 @@ function EPost(props) {
   )
 }
 
-export default EPost
+export default EPost;

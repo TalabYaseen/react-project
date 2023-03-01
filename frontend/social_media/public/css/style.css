@@ -496,7 +496,7 @@ header.sticky {
 }
 
 .land-featurearea {
-    background: #1fb6ff none repeat scroll 0 0;
+    background: #B20000 none repeat scroll 0 0;
     color: #fff;
     float: left;
     height: 100vh;
@@ -540,7 +540,7 @@ header.sticky {
 
 .friend-logo > span::before,
 .friend-logo > span::after {
-    background: #0a98dc none repeat scroll 0 0;
+    background: #B20000 none repeat scroll 0 0;
     border: 16px solid rgba(255, 255, 255, 0.1);
     border-radius: 100%;
     content: "";
@@ -1814,6 +1814,7 @@ for some reason nth-child(1) is always busy and elements starting from 2 */
     vertical-align: top;
     position: relative;
     width: 65%;
+    
 }
 
 .we-comment::before,
