@@ -60,18 +60,7 @@ const CreateGroup = (props)=> {
                     </select>
                   </div>
                 </div>
-                {/* <div className="form-radio">
-                  <div className="radio">
-                    <label>
-                      <input type="radio" defaultChecked="checked" name="radio" /><i className="check-box" />Public
-                    </label>
-                  </div>
-                  <div className="radio">
-                    <label>
-                      <input type="radio" name="radio" /><i className="check-box" />Private
-                    </label>
-                  </div>
-                </div> */}
+               
 
                 {/* uploade cover for group  */}
                 <div className="form-group">	
