@@ -33,6 +33,7 @@ function ShowComment(props) {
                                               <p>{singlecommint.comment_content}</p>
                                             </div>
                                           </li>
+                                          <br/>
     </div>
     
     )

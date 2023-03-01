@@ -6,7 +6,7 @@ const Navbar = () => {
         <div className="topbar stick">
             {/* logo  */}
             <div className="logo">
-            <a title href="newsfeed.html"><img src="images/logo.png" alt="" style={{width:'150px'}} /></a>
+            <a title href="newsfeed.html"><img src="images/logo.png" alt="" style={{width:'200px'}} /></a>
             </div>
 
             <div className="top-area">

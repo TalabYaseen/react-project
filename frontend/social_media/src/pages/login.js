@@ -62,7 +62,7 @@ const Login = () => {
                     <button className="mtr-btn signin" type="submit"><span>Login</span></button>
                   </div>
 
-                  <p>Don’t have an account Yet? <a type="button"><span>Register</span></a> now.</p>
+                  <p>Don’t have an account Yet? <a type="button" href="/Register"><span>Register</span></a> now.</p>
 
               </div>
 
@@ -72,14 +72,12 @@ const Login = () => {
             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div className="land-featurearea">
               <div className="land-meta">
-                <h1>Karam</h1>
-                <p>
-                  Winku is free to use for as long as you want with two active projects.
-                </p>
+                <h1>Nashmi</h1>
+          
                 <div className="friend-logo">
-                  <span><img src="images/wink.png" alt="" /></span>
+                  <span><img src="images/logo2.png" alt="" className="Logo" /></span>
                 </div>
-                <a href="#" title className="folow-me">Follow Us on</a>
+                
               </div>	
             </div>
           </div>

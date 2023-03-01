@@ -123,13 +123,11 @@ const Register = () => {
         <div className="land-featurearea">
           <div className="land-meta">
             <h1>Nashmi</h1>
-            <p>
-              Winku is free to use for as long as you want with two active projects.
-            </p>
+           
             <div className="friend-logo">
-              <span><img src="images/wink.png" alt="" /></span>
+              <span><img src="images/logo2.png" alt="" /></span>
             </div>
-            <a href="#" title className="folow-me">Follow Us on</a>
+            
           </div>	
         </div>
       </div>
@@ -180,7 +178,7 @@ const Register = () => {
                 <button type="submit" className="mtr-btn signup" ><span>Register</span></button>
                 
               </div>
-              <p>Already have an account? <a type="button"><span>Login Now!</span></a></p>
+              <p>Already have an account? <a type="button" href="/Login"><span>Login Now!</span></a></p>
             </form>
           </div>
 

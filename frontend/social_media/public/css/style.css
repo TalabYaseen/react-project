@@ -496,7 +496,7 @@ header.sticky {
 }
 
 .land-featurearea {
-    background: #1fb6ff none repeat scroll 0 0;
+    background: #B20000 none repeat scroll 0 0;
     color: #fff;
     float: left;
     height: 100vh;
@@ -508,13 +508,15 @@ header.sticky {
 
 .land-meta {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top:30%;
+    
     width: 100%;
 }
 
 .land-meta > h1 {
-    font-family: hobo std;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color: #000;
+    font-size: 45px;
 }
 
 .land-meta > p {
@@ -529,14 +531,19 @@ header.sticky {
 
 .friend-logo {
     display: inline-block;
-    width: 100%;
+    width: 80%;
 }
 
 .friend-logo > span {
     font-family: hobo std;
-    font-size: 200px;
+    font-size: 140px;
     position: relative;
 }
+.friend-logo > span > img {
+    width: 250px;
+    height: 250px;
+}
+
 
 .friend-logo > span::before,
 .friend-logo > span::after {
@@ -681,7 +688,7 @@ header.sticky {
 
 .top-area > ul > li {
     display: inline-block;
-    margin-right: 25px;
+    margin-right: 45px;
     position: relative;
     vertical-align: top;
     z-index: 2;

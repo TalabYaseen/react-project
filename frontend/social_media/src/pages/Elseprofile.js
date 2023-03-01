@@ -126,7 +126,7 @@ function getPosts(){
           <div className="feature-photo">
             <figure>
               {/* this cover photo must read from local storage if not found we must give it a no cover photo is set or any other photo*/}
-              <img src={userdata.cover_pic?require("../components/images/cover_pics/"+userdata.cover_pic):require("../components/images/cover_pics/coverphotoplaceholder.png")} alt="" />
+              <img src={userdata.cover_pic?require("../components/images/cover_pics/"+userdata.cover_pic):require("../components/images/cover_pics/coverphotoplaceholder.jpg")} alt="" />
               </figure>
               { (state === "friend") ? <div className="add-btn"><button onClick={()=>removeFriend()}>Delete Friend</button></div>:<div></div>}
               { (state === "receiver") ? <div className="add-btn"><button onClick={()=>AcceptFriend()}>Accept</button><button onClick={()=>removeRequest()}>Reject</button></div>:<div></div>}
@@ -138,7 +138,7 @@ function getPosts(){
                   <div className="user-avatar">
                     <figure>
                       {/* same as cover pic for profile pic */}
-                      <img src={userdata.profile_pic?require("../components/images/profile_pics/"+userdata.profile_pic):require("../components/images/profile_pics/coverphotoplaceholder.png")} alt="" />
+                      <img src={userdata.profile_pic?require("../components/images/profile_pics/"+userdata.profile_pic):require("../components/images/profile_pics/avatarphotoplaceholder.png")} alt="" />
                     </figure>
                   </div>
                 </div>

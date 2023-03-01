@@ -11,6 +11,9 @@ function InfoPost(props) {
     // document.getElementById(`editPostBTN${props.data.post_id}`).style.display = 'none';
     props.choosePostToEdit(id,content);
   }
+  const deletePost = () => {
+    
+  }
   return (
 
     <div>
