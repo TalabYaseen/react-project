@@ -22,7 +22,7 @@ function ShowComment(props) {
       <div>
        <li>
                                             <div className="comet-avatar">
-                                              <img src={singlecommint.profile_pic?require("../components/images/profile_pics/"+singlecommint.profile_pic):require("../components/images/profile_pics/coverphotoplaceholder.png")} alt="" />
+                                              <img src={singlecommint.profile_pic?require("../components/images/profile_pics/"+singlecommint.profile_pic):require("../components/images/profile_pics/coverphotoplaceholder.png")} alt=""  style={{width: "35px" , height : "35px"}}/>
                                             </div>
                                             <div className="we-comment">
                                               <div className="coment-head">
