@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
     return (
@@ -14,6 +15,11 @@ const Sidebar = () => {
               <li> 
                 <i className="ti-user" />
                 <a href="timeline-friends.html" title>friends</a>
+              </li>
+              <li> 
+                <i className="ti-user" />
+                <Link to={"/findfriends"}>find friends</Link>
+                
               </li>
               <li>
                 <i className="ti-comments-smiley" />

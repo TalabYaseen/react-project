@@ -2,12 +2,14 @@ import React from 'react'
 import Like from './Like'
 import { AiFillEdit } from 'react-icons/ai';
 function InfoPost(props) {
-  const deletePost = () => {
 
-  }
-  const editPost = () => {
-
-
+  // this func make edite post appear
+  const editPost = (id,content) => {
+    // console.log("editepost");
+    // document.getElementById(`post${props.data.post_id}`).style.display = 'none';
+    // document.getElementById(`editPostForm${props.data.post_id}`).style.display = 'block';
+    // document.getElementById(`editPostBTN${props.data.post_id}`).style.display = 'none';
+    props.choosePostToEdit(id,content);
   }
   return (
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function ShowComment(props) {
-  console.log(props.data,"data");
+  // console.log(props.data,"data");
   const [allcommentsforthispost,setallcommentsforthispost] = useState([]);
   const getallcommentsforthispost = () => {
     axios.get(`http://localhost/react-project/backend/post/allcommentstopost.php?${props.data.post_id}`)
@@ -15,7 +15,7 @@ function ShowComment(props) {
       getallcommentsforthispost();
     },[]
   )
-  console.log(allcommentsforthispost,"allcommentsforthispost")
+  // console.log(allcommentsforthispost,"allcommentsforthispost")
   return (
     <>
     {allcommentsforthispost.map(singlecommint=>

@@ -7,11 +7,15 @@ function Post(props) {
   const handelsetcommentadd = () => {
     setcommentadd(true)
   }
+  const choosePostToEdit = (id,content) => {
+    props.choosePostToEdit(id,content)
+    // console.log(id);
+  };
   return (
     <div>
         <div className="central-meta item">
                                     <div className="user-post">
-                                    <InfoPost data = {props.data}/>
+                                    <InfoPost data = {props.data} choosePostToEdit={choosePostToEdit}/>
                                       <div className="coment-area">
                                         <ul className="we-comet">
                                       {/*  COMMENT*/ }

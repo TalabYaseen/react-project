@@ -11,6 +11,7 @@ import Post from '../components/Post';
 import axios from "axios";
 
 const Profile = () => {
+
   // localStorage.setItem("user", JSON.stringify({
   //   id:7,
   //   first_name:"talab",
@@ -83,7 +84,55 @@ useEffect(()=>{
   // getComments();
 } , [])
 
-  console.log(posts,"posts");
+
+const [editpostid,seteditpostid]= useState(0);
+const [editpostcontent,seteditpostcontent]= useState("");
+// edite post
+const choosePostToEdit = (id,content) => {
+  // document.getElementById(`post`).style.display = 'none';
+  document.getElementById(`editPostForm`).style.display = 'block';
+  document.getElementById(`editPostBTN`).style.display = 'none';
+  seteditpostid(id);
+  seteditpostcontent(content);
+};
+
+// func to save changes on certin post
+const handleEditPostSubmit  = async (e) => {
+  e.preventDefault();
+  const formEditData = new FormData();
+  formEditData.append("post_content", inputs['post_content']);
+  formEditData.append("post_id", editpostid);
+  formEditData.append("file", file);
+  console.log(formEditData);
+  try {
+    const response = await axios.post(
+      "http://localhost/react-project/backend/post/postEdit.php", formEditData
+    );
+    console.log(response.data);
+    // window.location.assign('/home');
+  } catch (error) {
+    console.error(error);
+  }
+};
+// لحفظ الداتا التي يدخلها المستخدم في الفورم الخاص بتعديل البوست
+const handleEditPost = (id) => {
+  const post_id = id;
+  const value = document.getElementById(`editPostInput`).value;
+  setInputs({'post_content': value , 'post_id' : post_id})
+}
+// اخفاء فورم تعديل البوست
+    const canclePostEdit = (id) => {
+    // document.getElementById(`post`).style.display = 'block';
+    document.getElementById(`editPostForm`).style.display = 'none';
+    document.getElementById(`editPostBTN`).style.display = 'inline-block';
+    document.getElementById(`imgPost`).style.display = 'block';
+  }
+
+    // تعريف ستات لتخزين الداتا لتعديل أي بوست
+    const [inputs , setInputs] = useState("");
+    const [file, setFile] = useState(null);
+
+  // console.log(file,"file");
     return (
        
                 <div>
@@ -154,7 +203,6 @@ useEffect(()=>{
                             <Sidebar/>
                               <div className="col-lg-6">
                                 
-                                
                                 {/* Write post start*/}
                                 <WritePost userpic = {userdata.profile_pic} userid = {userdata.id}/>
                                 {/* Write post end*/}
@@ -162,8 +210,26 @@ useEffect(()=>{
 
                                 {/* add post new box */}
                                 <div className="loadMore">
-                                {/*POSTS*/}
-                                {posts.map(e => <Post data={e}/>)}
+{/*POSTS*/}
+{/* this form to edite post  */}
+<form id='editPostForm' action="" style={{display : 'none'}} onSubmit={handleEditPostSubmit}>
+
+  <textarea 
+    style={{width: '50vw'}} 
+    type="text" 
+    defaultValue={editpostcontent} 
+    id='editPostInput'
+    onChange={() => handleEditPost(editpostid)}/>
+  <input 
+    type="file"
+    id="file"
+    onChange={(e) => setFile(e.target.files[0])}/>
+  <br />
+  <button type='submit'>Update</button>
+  <button style={{background : 'red' , color : 'white'}} onClick={()=>{canclePostEdit(editpostid)}}  type='button'>Cancle</button>
+</form>
+{/* this form to edite post  */}
+                                {posts.map(e => <Post choosePostToEdit={choosePostToEdit} data={e} />)}
                                   
                                 </div>
                               </div>{/* centerl meta */}
