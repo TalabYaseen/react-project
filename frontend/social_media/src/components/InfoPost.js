@@ -6,10 +6,6 @@ function InfoPost(props) {
   // console.log(props.data,"props.data.profile_pic")
   // this func make edite post appear
   const editPost = (id,content) => {
-    // console.log("editepost");
-    // document.getElementById(`post${props.data.post_id}`).style.display = 'none';
-    // document.getElementById(`editPostForm${props.data.post_id}`).style.display = 'block';
-    // document.getElementById(`editPostBTN${props.data.post_id}`).style.display = 'none';
     props.choosePostToEdit(id,content);
     console.log(id,content)
   }
@@ -32,8 +28,8 @@ function InfoPost(props) {
           {/* delete and edit post */}
           {(JSON.parse(localStorage.getItem("user")).id == JSON.parse(localStorage.getItem("user")).id) ?
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-              <div> <button onClick={() => { deletePost(props.data.post_id) }}><i class="fa fa-trash" aria-hidden="true" style={{ color: "black", fontSize: '20px', marginLeft: '10px' }} /></button></div>
-              <div>     <button id={`editPostBTN`} onClick={() => { editPost(props.data.post_id,props.data.content) }}> <AiFillEdit style={{ color: "black", fontSize: '20px' }} />
+              <div> <button onClick={() => { deletePost(props.data.post_id) }} style={{background:'none',border:'none'}}><i class="fa fa-trash" aria-hidden="true" style={{ color: "black", fontSize: '30px', marginLeft: '10px' }} /></button></div>
+              <div>     <button id={`editPostBTN`} onClick={() => { editPost(props.data.post_id,props.data.content) }} style={{background:'none',border:'none'}}> <AiFillEdit style={{ color: "black", fontSize: '30px' }} />
              
               </button>
 
