@@ -15,12 +15,27 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($method) {
     case 'GET' :
-        $sql = "SELECT * FROM `users` INNER JOIN `posts` ON posts.user_id = users.id 
-        ORDER BY posts.created_at DESC" ;
-        $query = $db->prepare($sql);
-        $query->execute();
-        $posts = $query->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($posts);
+        $path = explode('?' , $_SERVER['REQUEST_URI']);
+        $id = $path[1];
+        $sql1 = " SELECT * FROM `members`
+                INNER JOIN `users` ON members.user_id = users.id
+                WHERE members.group_id =$id" ;
+        $query1 = $db->prepare($sql1);
+        $query1->execute();
+        $users = $query1->fetchAll(PDO::FETCH_ASSOC);
+        $sql2 = "SELECT * FROM posts INNER JOIN `users` ON posts.user_id  = users.id Where posts.group_id =$id";
+        $query2 = $db->prepare($sql2);
+        $query2->execute();
+        $posts = $query2->fetchAll(PDO::FETCH_ASSOC);
+        $sql3 = " SELECT * FROM `groups`
+                WHERE id =$id" ;
+        $query3 = $db->prepare($sql3);
+        $query3->execute();
+        $groupdata = $query3->fetch(PDO::FETCH_ASSOC);
+        $response = ["members"=>$users,"posts"=>$posts,"groupdata"=>$groupdata];
+        echo (json_encode($response));
+
+        // echo json_encode($response);
         break;
 
 

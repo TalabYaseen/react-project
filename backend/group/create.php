@@ -6,23 +6,21 @@
    header("Access-Control-Allow-Headers: Content-Type,Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
     include_once '../config.php';
-    include_once './users.php';
+    include_once './groups.php';
 
     $database = new DB();
     $db = $database->getConnection();
 
-    $user = new User($db);
+    $group = new Group($db);
     $data = json_decode(file_get_contents("php://input"));
 
-    // $user->first_name = $data->fname;
-    // $user->last_name = $data->lname;
-    $user->first_name = $data->firstName;
-    $user->last_name = $data->lastName;
-    $user->password = $data->password;
-    $user->email = $data->email;
-    if($user->createUser()){
-        echo json_encode("User created.");
+    $group->name = $data->name;
+    $ugroupser->user_id = $data->user_id;
+    $group->discription = $data->discription;
+    $group->image_cover = $data->image_cover;
+    if($group->createGroups()){
+        echo json_encode("Group created.");
     } else{
-        echo json_encode("Failed to create user.");
+        echo json_encode("Failed to create group.");
     }
 ?>

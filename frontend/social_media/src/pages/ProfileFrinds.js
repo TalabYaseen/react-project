@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React from 'react';
 import Navbar from '../components/navbar';
 import Sidebar from '../components/sidebar';
 import Rightbar from '../components/rightbar';
@@ -8,82 +8,8 @@ import InfoPost from '../components/InfoPost';
 import ShowComment from '../components/ShowComment';
 import WriteComment from '../components/WriteComment';
 import Post from '../components/Post';
-import axios from "axios";
 
-const Profile = () => {
-  // localStorage.setItem("user", JSON.stringify({
-  //   id:7,
-  //   first_name:"talab",
-  //   last_name:"yaseen",
-  //   email:7,
-  //   password:7,
-  //   phone:7,
-  //   profile_pic:"",
-  //   cover_pic:"",
-  // }))
-  const [userdata,setuserdata]=useState (JSON.parse(localStorage.getItem("user")))
-  // console.log (userdata,"userdata")
-
-  // function change cover photo start
-  const  changecoverphoto = async (e) => {
-    const formEditData = new FormData();
-    formEditData.append("userid", userdata.id);
-    formEditData.append("coverphoto", e.target.files[0]);
-    try {
-      const response = await axios.post(
-        "http://localhost/react-project/backend/user/editecoverpic.php", formEditData
-      );
-      // console.log(response.data);
-    } catch (error) {
-      // console.error(error);
-    }
-
-    var user =  JSON.parse(localStorage.getItem("user"));
-    user.cover_pic = e.target.files[0].name;
-    localStorage.setItem("user",JSON.stringify(user));
-    setuserdata(user);
-  }
-    // function change cover photo end
-
-
-    // function change profile photo start
-    const changecprofilephoto = async (e) => {
-      const formEditData = new FormData();
-      formEditData.append("userid", userdata.id);
-      formEditData.append("profilephoto", e.target.files[0]);
-      try {
-        const response = await axios.post(
-          "http://localhost/react-project/backend/user/editeprofilepic.php", formEditData
-        );
-        console.log(response.data);
-      } catch (error) {
-        // console.error(error);
-      }
-    var user =  JSON.parse(localStorage.getItem("user"));
-    user.profile_pic = e.target.files[0].name;
-    localStorage.setItem("user",JSON.stringify(user));
-    setuserdata(user); 
-  }
-  // function change profile photo end
-
-
-  // make a state to store the requested posts data
-  const [posts , setPosts] = useState([]);
-  // get all posts function start
-  function getPosts(){
-    axios.get(`http://localhost/react-project/backend/post/posts.php`)
-    .then(response => {
-        setPosts(response.data);
-    })
-}
-// get all posts function end
-// using hook to store all posts and comments data and rerender the page
-useEffect(()=>{
-  getPosts();
-  // getComments();
-} , [])
-
-  console.log(posts,"posts");
+const ProfileFrinds = () => {
     return (
        
                 <div>
@@ -91,34 +17,30 @@ useEffect(()=>{
                   <Navbar/>
                     <section>
                       <div className="feature-photo">
-                        <figure>
-                          {/* this cover photo must read from local storage if not found we must give it a no cover photo is set or any other photo*/}
-                          <img src={userdata.cover_pic?require("../components/images/cover_pics/"+userdata.cover_pic):require("../components/images/cover_pics/coverphotoplaceholder.png")} alt="" />
-                          </figure>
+                        <figure><img src="images/resources/timeline-1.jpg" alt="" /></figure>
                         <div className="add-btn">
                           <a href="#" title data-ripple>Add Friend</a>
                         </div>
-                        <form className="edit-phto">
+                        {/* <form className="edit-phto">
                           <i className="fa fa-camera-retro" />
                           <label className="fileContainer">
                             Edit Cover Photo
-                            <input type="file" onChange={changecoverphoto}/>
+                            <input type="file" />
                           </label>
-                        </form>
+                        </form> */}
                         <div className="container-fluid">
                           <div className="row merged">
                             <div className="col-lg-2 col-sm-3">
                               <div className="user-avatar">
                                 <figure>
-                                  {/* same as cover pic for profile pic */}
-                                  <img src={userdata.profile_pic?require("../components/images/profile_pics/"+userdata.profile_pic):require("../components/images/profile_pics/coverphotoplaceholder.png")} alt="" />
-                                  <form className="edit-phto">
+                                  <img src="images/resources/user-avatar.jpg" alt="" />
+                                  {/* <form className="edit-phto">
                                     <i className="fa fa-camera-retro" />
                                     <label className="fileContainer">
                                       Edit Display Photo
-                                      <input type="file"  onChange={changecprofilephoto}/>
+                                      <input type="file" />
                                     </label>
-                                  </form>
+                                  </form> */}
                                 </figure>
                               </div>
                             </div>
@@ -126,8 +48,8 @@ useEffect(()=>{
                               <div className="timeline-info">
                                 <ul>
                                   <li className="admin-name">
-                                    <h5>{userdata.first_name} {userdata.last_name}</h5>
-                                    {/* <span>Group Admin</span> */}
+                                    <h5>Janice Griffith</h5>
+                                    <span>Group Admin</span>
                                   </li>
                                   <li>
                                     <a className="active" href="/profile" title data-ripple> My Profile</a>
@@ -153,17 +75,10 @@ useEffect(()=>{
                             <div className="row" id="page-contents">
                             <Sidebar/>
                               <div className="col-lg-6">
-                                
-                                
-                                {/* Write post start*/}
-                                <WritePost userpic = {userdata.profile_pic} userid = {userdata.id}/>
-                                {/* Write post end*/}
-
-
                                 {/* add post new box */}
                                 <div className="loadMore">
-                                {/*POSTS*/}
-                                {posts.map(e => <Post data={e}/>)}
+                                {/*POST*/}
+                                   <Post/>
                                   
                                 </div>
                               </div>{/* centerl meta */}
@@ -252,4 +167,4 @@ useEffect(()=>{
     );
 }
 
-export default Profile;
+export default ProfileFrinds;
