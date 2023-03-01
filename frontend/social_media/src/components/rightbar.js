@@ -1,6 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { json } from 'react-router';
+import { Link } from 'react-router-dom';
+
 
 const Rightbar = () => {
+
+  const [userfreinds,setuserfreinds] = useState([]);
+function getuserfriends(){
+  axios.get(`http://localhost/react-project/backend/friend/friend.php?${JSON.parse(localStorage.getItem("user")).id}`)
+  .then(response => {
+    setuserfreinds(response.data);
+    console.log(response.data,"freinds")
+    // console.log(response.data[0].first_name,"klsfdhgok")
+  })
+}
+useEffect(()=>{
+  getuserfriends();
+} , [])
     return (
         
         <div className="col-lg-3">
@@ -11,17 +28,20 @@ const Rightbar = () => {
                                   <h4 className="widget-title">Friends</h4>
                                   <div id="searchDir" />
                                   <ul id="people-list" className="friendz-list">
-                                    <li>
+                                    {(userfreinds != []) ? userfreinds.map(e=>{
+                                      return(
+                                        <Link to={`/Elseprofile/${e.id}`}>
+                                        <li>
                                       <figure>
-                                        <img src="images/resources/friend-avatar.jpg" alt="" />
+                                        <img src={e.profile_pic?require("./images/profile_pics/"+e.profile_pic):require("../components/images/profile_pics/coverphotoplaceholder.png")} alt="" />
                                         <span className="status f-online" />
                                       </figure>
                                       <div className="friendz-meta">
-                                        <a href="time-line.html">bucky barnes</a>
-                                        <i><a href="https://wpkixx.com/cdn-cgi/l/email-protection" className="__cf_email__" data-cfemail="a0d7c9ced4c5d2d3cfccc4c5d2e0c7cdc1c9cc8ec3cfcd">[email&nbsp;protected]</a></i>
+                                        <a href="time-line.html">{e.first_name} {e.last_name}</a>
                                       </div>
-                                    </li>
-                                    <li>
+                                    </li></Link>)}):<>no friends</>}
+                                    
+                                    {/* <li>
                                       <figure>
                                         <img src="images/resources/friend-avatar2.jpg" alt="" />
                                         <span className="status f-away" />
@@ -30,8 +50,8 @@ const Rightbar = () => {
                                         <a href="time-line.html">Sarah Loren</a>
                                         <i><a href="https://wpkixx.com/cdn-cgi/l/email-protection" className="__cf_email__" data-cfemail="b4d6d5c6dad1c7f4d3d9d5ddd89ad7dbd9">[email&nbsp;protected]</a></i>
                                       </div>
-                                    </li>
-                                    <li>
+                                    </li> */}
+                                    {/* <li>
                                       <figure>
                                         <img src="images/resources/friend-avatar3.jpg" alt="" />
                                         <span className="status f-off" />
@@ -90,7 +110,7 @@ const Rightbar = () => {
                                         <a href="time-line.html">daniel warber</a>
                                         <i><a href="https://wpkixx.com/cdn-cgi/l/email-protection" className="__cf_email__" data-cfemail="dbb1baa8b4b5b99bbcb6bab2b7f5b8b4b6">[email&nbsp;protected]</a></i>
                                       </div>
-                                    </li>
+                                    </li> */}
                                   
                                   </ul>
                                   <div className="chat-box">
