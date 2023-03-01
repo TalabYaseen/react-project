@@ -25,7 +25,7 @@ const WritePost = (props) => {
   }
   return (
 <>
-<div className="central-meta">
+                                  <div className="central-meta">
                                   <div className="new-postbox">
                                     <figure>
                                       <img src={props.userpic?require("../components/images/profile_pics/"+props.userpic):require("../components/images/profile_pics/coverphotoplaceholder.png")} alt="" />

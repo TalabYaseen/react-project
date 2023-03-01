@@ -28,6 +28,7 @@ function App() {
             <Route exact path="/Groups" element={<Groups/>}/>
             <Route exact path="/SingleGroup" element={<SingleGroup/>}/>
             <Route exact path="/findfriends" element={<FindFriends/>}/>
+            <Route exact path="/EditProfile" element={<EditProfile/>}/>
           </Routes>
       </Router>
     </>
