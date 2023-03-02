@@ -13,9 +13,10 @@ const Home = () => {
    const [posts , setPosts] = useState([]);
    // get all posts function start
    function getPosts(){
-     axios.get(`http://localhost/react-project/backend/post/posts.php`)
+     axios.get(`http://localhost/react-project/backend/post/homeposts.php?${JSON.parse(localStorage.getItem("user")).id}`)
      .then(response => {
          setPosts(response.data);
+         console.log(response.data)
      })
  }
  // get all posts function end

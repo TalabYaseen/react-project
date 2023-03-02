@@ -124,12 +124,12 @@ const Register = () => {
           <div className="land-meta">
             <h1>Nashmi</h1>
             <p>
-              Winku is free to use for as long as you want with two active projects.
+            Nashmi is free to use for as long as you want with two active projects.
             </p>
             <div className="friend-logo">
               <span><img src="images/wink.png" alt="" /></span>
             </div>
-            <a href="#" title className="folow-me">Follow Us on</a>
+            {/* <a href="#" title className="folow-me">Follow Us on</a> */}
           </div>	
         </div>
       </div>

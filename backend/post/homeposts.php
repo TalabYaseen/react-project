@@ -17,15 +17,29 @@ switch ($method) {
     case 'GET' :
         $path = explode('?' , $_SERVER['REQUEST_URI']);
         if(isset($path[1]) && is_numeric($path[1])) {
-            $sql = "SELECT * FROM `posts` WHERE user_id = $path[1]
-            ORDER BY posts.created_at DESC" ;
+            $sql = "SELECT p.*, u.*
+            FROM posts p
+            LEFT JOIN users u ON p.user_id = u.id
+            WHERE p.user_id = $path[1] OR p.group_id IN (
+                SELECT group_id
+                FROM groups
+                WHERE user_id = $path[1]
+            ) OR p.user_id IN (
+                SELECT friend_id
+                FROM friends
+                WHERE user_id = $path[1] AND status = 'accepted'
+            ) OR p.group_id IN (
+                SELECT group_id
+                FROM members
+                WHERE user_id = $path[1]
+            )
+            " ;
             $query = $db->prepare($sql);
             $query->execute();
             $posts = $query->fetchAll(PDO::FETCH_ASSOC);
             echo json_encode($posts);
         break;
         }else {
-            
         $sql = "SELECT p.*, u.*
         FROM posts p
         LEFT JOIN users u ON p.user_id = u.user_id

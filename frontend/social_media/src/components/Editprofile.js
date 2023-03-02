@@ -1,118 +1,108 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom"
+import Form from "react-bootstrap/Form";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {useState ,useEffect} from "react";
+import axios from "axios";
 
-function Editprofile() {
+function Editprofile(props) {
+  const [user , setUser] = useState({});
+  var data = localStorage.getItem('user');
+     data = JSON.parse(data);
+  useEffect(()=>{
+     setUser((data));
+    //  console.log(data,"data");
+  },[])
+    const navigate = useNavigate();
+    const [id , setId ] = useState('');
+    const [first_name , setFirst ] = useState('');
+    const [last_name , setLast ] = useState('');
+    const [email , setEmail ] = useState('');
+    const [password , setPassword ] = useState('');
+    const [city , setCity ] = useState('');
+    const [country , setCountry ] = useState('');
+    const [about , setAbout ] = useState('');
+
+    
+    const handleId = (e) => {
+      setId(e.target.value)
+    }
+    const handleFirst = (e) => {
+        setFirst(e.target.value)
+    } 
+    const handleLast = (e) => {
+        setLast(e.target.value)
+    }
+    const handleEmail = (e) => {
+        setEmail(e.target.value)
+    }
+    const handleCity = (e) => {
+      setCity(e.target.value)
+    }
+    const handleCountry = (e) => {
+      setCountry(e.target.value)
+    }
+    const handleAbout = (e) => {
+      setAbout(e.target.value)
+    }
+
+    const handleSubmit = (e) => {
+
+      e.preventDefault()
+      const user = {
+        // id : e.target.id.value , 
+        id : data.id,
+        first_name :e.target.first_name.value ,
+        last_name :e.target.last_name.value ,
+        email :e.target.email.value ,
+        about :e.target.about.value ,
+        city :e.target.city.value ,
+        country :e.target.country.value ,
+        profile_pic:data.profile_pic,
+        cover_pic:data.cover_pic
+        
+      }
+      console.log(user,"id test");
+
+      localStorage.setItem('user' , JSON.stringify(user))
+       axios.put(`http://localhost/react-project/backend/user/editProfile.php`,user)
+              .then((response)=>{
+                  console.log(response.data ,"response");
+                  setUser(user);
+                  props.haschanged();
+                  window.location.assign(`/EditProfile`)
+              })
+      
+      
+    }
+    
+
   return (
-    <div>
+         <div>
             <div className="central-meta">
             <div className="editing-info">
-              <h5 className="f-title"><i className="ti-info-alt" /> Edit Basic Information</h5>
-              <form method="post">
+              <h5 className="f-title"><i className="ti-info-alt" /> Edit Basic Information</h5>  
+              <form onSubmit={handleSubmit}>
+              <input type="hidden" value={id} onChange={(e) => handleId(1)} className="loginInput" /><br/>
                 <div className="form-group half">	
-                  <input type="text" id="input" required="required" />
+                  <input type="text" id="input" onChange={(e) => handleFirst(e)} defaultValue={user.first_name} name="first_name" required="required" />
                   <label className="control-label" htmlFor="input">First Name</label><i className="mtrl-select" />
                 </div>
                 <div className="form-group half">	
-                  <input type="text" required="required" />
+                  <input type="text" onChange={(e) => handleLast(e)} defaultValue={user.last_name} name="last_name" required="required" />
                   <label className="control-label" htmlFor="input">Last Name</label><i className="mtrl-select" />
                 </div>
                 <div className="form-group">	
-                  <input type="text" required="required" />
-                  <label className="control-label" htmlFor="input"><a href="https://wpkixx.com/cdn-cgi/l/email-protection" className="__cf_email__" data-cfemail="4b0e262a22270b">[email&nbsp;protected]</a></label><i className="mtrl-select" />
+                  <input type="text" onChange={(e) => handleEmail(e)} defaultValue={user.email} name="email" required="required" />
+                  <label className="control-label" htmlFor="input">Email</label><i className="mtrl-select" />
                 </div>
+
                 <div className="form-group">	
-                  <input type="text" required="required" />
-                  <label className="control-label" htmlFor="input">Phone No.</label><i className="mtrl-select" />
-                </div>
-                <div className="dob">
-                  <div className="form-group">
-                    <select>
-                      <option value="Day">Day</option>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                      <option>6</option>
-                      <option>7</option>
-                      <option>8</option>
-                      <option>9</option>
-                      <option>10</option>
-                      <option>11</option>
-                      <option>12</option>
-                      <option>13</option>
-                      <option>14</option>
-                      <option>15</option>
-                      <option>16</option>
-                      <option>17</option>
-                      <option>18</option>
-                      <option>19</option>
-                      <option>20</option>
-                      <option>21</option>
-                      <option>22</option>
-                      <option>23</option>
-                      <option>24</option>
-                      <option>25</option>
-                      <option>26</option>
-                      <option>27</option>
-                      <option>28</option>
-                      <option>29</option>
-                      <option>30</option>
-                      <option>31</option>
-                    </select>
-                  </div>
-                  <div className="form-group">
-                    <select>
-                      <option value="month">Month</option>
-                      <option>Jan</option>
-                      <option>Feb</option>
-                      <option>Mar</option>
-                      <option>Apr</option>
-                      <option>May</option>
-                      <option>Jun</option>
-                      <option>Jul</option>
-                      <option>Aug</option>
-                      <option>Sep</option>
-                      <option>Oct</option>
-                      <option>Nov</option>
-                      <option>Dec</option>
-                    </select>
-                  </div>
-                  <div className="form-group">
-                    <select>
-                      <option value="year">Year</option>
-                      <option>2000</option>
-                      <option>2001</option>
-                      <option>2002</option>
-                      <option>2004</option>
-                      <option>2005</option>
-                      <option>2006</option>
-                      <option>2007</option>
-                      <option>2008</option>
-                      <option>2009</option>
-                      <option>2010</option>
-                      <option>2011</option>
-                      <option>2012</option>
-                    </select>
-                  </div>
-                </div>
-                <div className="form-radio">
-                  <div className="radio">
-                    <label>
-                      <input type="radio" defaultChecked="checked" name="radio" /><i className="check-box" />Male
-                    </label>
-                  </div>
-                  <div className="radio">
-                    <label>
-                      <input type="radio" name="radio" /><i className="check-box" />Female
-                    </label>
-                  </div>
-                </div>
-                <div className="form-group">	
-                  <input type="text" required="required" />
+                  <input type="text" onChange={(e) => handleCity(e)} defaultValue={user.city} name="city" required="required" />
                   <label className="control-label" htmlFor="input">City</label><i className="mtrl-select" />
                 </div>
-                <div className="form-group">	
-                  <select>
+                <div className="form-group" >	
+                  <select onChange={(e) => handleCountry(e)} defaultValue={user.country} name="country">
                     <option value="country">Country</option>
                     <option value="AFG">Afghanistan</option>
                     <option value="ALA">Ƭand Islands</option>
@@ -366,12 +356,14 @@ function Editprofile() {
                   </select>
                 </div>
                 <div className="form-group">	
-                  <textarea rows={4} id="textarea" required="required" defaultValue={""} />
-                  <label className="control-label" htmlFor="textarea">About Me</label><i className="mtrl-select" />
+                  <textarea rows={4} id="textarea" onChange={(e) => handleAbout(e)} 
+                  required="required" defaultValue={user.about} name="about" />
+                  <label className="control-label" htmlFor="textarea">About Me</label><i 
+                   className="mtrl-select" />
                 </div>
                 <div className="submit-btns">
-                  <button type="button" className="mtr-btn"><span>Cancel</span></button>
-                  <button type="button" className="mtr-btn"><span>Update</span></button>
+                  {/* <button type="button" className="mtr-btn"><span>Cancel</span></button> */}
+                  <button type="submit" className="mtr-btn"><span>Update</span></button>
                 </div>
               </form>
             </div>

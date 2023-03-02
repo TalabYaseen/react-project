@@ -72,14 +72,14 @@ const Login = () => {
             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div className="land-featurearea">
               <div className="land-meta">
-                <h1>Karam</h1>
+                <h1>Nashmi</h1>
                 <p>
-                  Winku is free to use for as long as you want with two active projects.
+                Nashmi is free to use for as long as you want with two active projects.
                 </p>
                 <div className="friend-logo">
                   <span><img src="images/wink.png" alt="" /></span>
                 </div>
-                <a href="#" title className="folow-me">Follow Us on</a>
+                {/* <a href="#" title className="folow-me">Follow Us on</a> */}
               </div>	
             </div>
           </div>
