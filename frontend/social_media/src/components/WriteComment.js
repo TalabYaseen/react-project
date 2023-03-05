@@ -32,7 +32,7 @@ function WriteComment(props) {
       <li className="post-comment">
     
     <div className="comet-avatar">
-<img src={userdata.profile_pic?require("../components/images/profile_pics/"+userdata.profile_pic):require("../components/images/profile_pics/coverphotoplaceholder.png")} alt="" />
+<img src={userdata.profile_pic?require("../components/images/profile_pics/"+userdata.profile_pic):require("../components/images/profile_pics/avatarphotoplaceholder.png")} alt="" />
    </div>
    
 <div className="post-comt-box">

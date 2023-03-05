@@ -62,7 +62,7 @@ const Login = () => {
                     <button className="mtr-btn signin" type="submit"><span>Login</span></button>
                   </div>
 
-                  <p>Don’t have an account Yet? <a type="button"><span>Register</span></a> now.</p>
+                  <p>Don’t have an account Yet? <a type="button" href="/Register"><span>Register</span></a> now.</p>
 
               </div>
 
@@ -77,7 +77,7 @@ const Login = () => {
                 Nashmi is free to use for as long as you want with two active projects.
                 </p>
                 <div className="friend-logo">
-                  <span><img src="images/wink.png" alt="" /></span>
+                  <span><img src="images/logo2.png" alt="" className="Logo" /></span>
                 </div>
                 {/* <a href="#" title className="folow-me">Follow Us on</a> */}
               </div>	

@@ -31,7 +31,7 @@ const Sidebar = () => {
               </li>
               <li>
                 <i className="ti-power-off" />
-                <a href="landing.html" title>Logout</a>
+               <Link to="/Login">Logout </Link> 
               </li>
             </ul>
           </div>{/* Shortcuts */}

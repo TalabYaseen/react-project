@@ -16,10 +16,11 @@ const WritePost = (props) => {
         "http://localhost/react-project/backend/post/posts.php", formEditData
       );
       console.log(response.data);
-      // window.location.assign('/home');
-      setpostcontent("")
+           props.newpost();
+      setpostcontent("");
     } catch (error) {
       console.error(error);
+      setpostcontent("");
     }
 
   }
@@ -28,7 +29,7 @@ const WritePost = (props) => {
                                   <div className="central-meta">
                                   <div className="new-postbox">
                                     <figure>
-                                      <img src={props.userpic?require("../components/images/profile_pics/"+props.userpic):require("../components/images/profile_pics/coverphotoplaceholder.png")} alt="" />
+                                      <img src={JSON.parse(localStorage.getItem("user")).profile_pic?require("../components/images/profile_pics/"+JSON.parse(localStorage.getItem("user")).profile_pic):require("../components/images/profile_pics/avatarphotoplaceholder.png")} alt="" />
                                     </figure>
                                     <div className="newpst-input">
                                       <form method="post" onSubmit={handelsubmitpost}>

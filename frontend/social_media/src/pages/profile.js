@@ -143,7 +143,7 @@ const handleEditPost = (id) => {
       <div className="feature-photo">
         <figure>
           {/* this cover photo must read from local storage if not found we must give it a no cover photo is set or any other photo*/}
-          <img src={userdata.cover_pic?require("../components/images/cover_pics/"+userdata.cover_pic):require("../components/images/cover_pics/coverphotoplaceholder.png")} alt="" className='cover' />
+          <img src={userdata.cover_pic?require("../components/images/cover_pics/"+userdata.cover_pic):require("../components/images/cover_pics/coverphotoplaceholder.jpg")} alt="" className='cover' />
           </figure>
         {/* <div className="add-btn">
           <a href="#" title data-ripple>Add Friend</a>
@@ -161,7 +161,7 @@ const handleEditPost = (id) => {
               <div className="user-avatar">
                 <figure>
                   {/* same as cover pic for profile pic */}
-                  <img src={userdata.profile_pic?require("../components/images/profile_pics/"+userdata.profile_pic):require("../components/images/profile_pics/coverphotoplaceholder.png")} alt=""  className='avatar'/>
+                  <img src={userdata.profile_pic?require("../components/images/profile_pics/"+userdata.profile_pic):require("../components/images/profile_pics/avatarphotoplaceholder.png")} alt=""  className='avatar'/>
                   <form className="edit-phto">
                     <i className="fa fa-camera-retro" />
                     <label className="fileContainer">
@@ -202,7 +202,7 @@ const handleEditPost = (id) => {
               <div className="col-lg-6">
                 
                 {/* Write post start*/}
-                <WritePost userpic = {userdata.profile_pic} userid = {userdata.id}/>
+                <WritePost userpic = {userdata.profile_pic} userid = {userdata.id} newpost={getPosts}/>
                 {/* Write post end*/}
                 {/* add post new box */}
                 <div className="loadMore">
@@ -211,7 +211,7 @@ const handleEditPost = (id) => {
     <div className="new-postbox">
       <div>Edite Your Post</div>
       {/* <figure>
-        <img src={props.userpic?require("../components/images/profile_pics/"+props.userpic):require("../components/ images/profile_pics/coverphotoplaceholder.png")} alt="" />
+        <img src={props.userpic?require("../components/images/profile_pics/"+props.userpic):require("../components/ images/profile_pics/avatarphotoplaceholder.png")} alt="" />
       </figure> */}
       <div className="newpst-input">
         <form  onSubmit={handleEditPostSubmit}>

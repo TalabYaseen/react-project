@@ -39,6 +39,7 @@ const Home = () => {
                               {/*write post start*/}
                               <WritePost/>
                               {/* add post new box */}
+                              
                               <div className="loadMore">
                               {/*POST*/}
                               {posts.map(e => <Post data={e}/>)}

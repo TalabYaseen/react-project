@@ -69,8 +69,11 @@ function Editprofile(props) {
               .then((response)=>{
                   console.log(response.data ,"response");
                   setUser(user);
-                  props.haschanged();
-                  window.location.assign(`/EditProfile`)
+                  // props.haschanged();
+                  // window.location.assign(`/EditProfile`)
+                  navigate('/profile')
+                  // setUser(( localStorage.getItem('user')));
+                  
               })
       
       
@@ -92,14 +95,10 @@ function Editprofile(props) {
                   <input type="text" onChange={(e) => handleLast(e)} defaultValue={user.last_name} name="last_name" required="required" />
                   <label className="control-label" htmlFor="input">Last Name</label><i className="mtrl-select" />
                 </div>
+                
                 <div className="form-group">	
                   <input type="text" onChange={(e) => handleEmail(e)} defaultValue={user.email} name="email" required="required" />
                   <label className="control-label" htmlFor="input">Email</label><i className="mtrl-select" />
-                </div>
-
-                <div className="form-group">	
-                  <input type="text" onChange={(e) => handleCity(e)} defaultValue={user.city} name="city" required="required" />
-                  <label className="control-label" htmlFor="input">City</label><i className="mtrl-select" />
                 </div>
                 <div className="form-group" >	
                   <select onChange={(e) => handleCountry(e)} defaultValue={user.country} name="country">
@@ -356,8 +355,13 @@ function Editprofile(props) {
                   </select>
                 </div>
                 <div className="form-group">	
+                  <input type="text" onChange={(e) => handleCity(e)} defaultValue={user.city} name="city" />
+                  <label className="control-label" htmlFor="input">City</label><i className="mtrl-select" />
+                </div>
+                
+                <div className="form-group">	
                   <textarea rows={4} id="textarea" onChange={(e) => handleAbout(e)} 
-                  required="required" defaultValue={user.about} name="about" />
+                   defaultValue={user.about} name="about" />
                   <label className="control-label" htmlFor="textarea">About Me</label><i 
                    className="mtrl-select" />
                 </div>

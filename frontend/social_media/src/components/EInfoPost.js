@@ -15,7 +15,7 @@ function EInfoPost(props) {
     <div>
         <div className="friend-info">
                                         <figure>
-                                          <img src={props.userdata.profile_pic?require("../components/images/profile_pics/"+props.userdata.profile_pic):require("../components/images/profile_pics/coverphotoplaceholder.png")} alt="" />
+                                          <img src={props.userdata.profile_pic?require("../components/images/profile_pics/"+props.userdata.profile_pic):require("../components/images/profile_pics/avatarphotoplaceholder.png")} alt="" />
                                         </figure>
                                         <div className="friend-name">
                                           <ins><a href="time-line.html" title>{props.userdata.first_name} {props.userdata.last_name}</a></ins>

@@ -177,7 +177,7 @@ function Person() {
             <div className="nearly-pepls">
                 
               <figure>
-              <Link to={`/Elseprofile/${ele.id}`}><img src={ele.profile_pic?require("../components/images/profile_pics/"+ele.profile_pic):require("../components/images/profile_pics/coverphotoplaceholder.png")} alt="" /></Link>
+              <Link to={`/Elseprofile/${ele.id}`}><img src={ele.profile_pic?require("../components/images/profile_pics/"+ele.profile_pic):require("../components/images/profile_pics/avatarphotoplaceholder.png")} alt="" /></Link>
               </figure>
               <div className="pepl-info">
                 <h4 >{ele.first_name} {ele.last_name}</h4>

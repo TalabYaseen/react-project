@@ -18,7 +18,9 @@ import { useNavigate } from 'react-router';
 const EditProfile = () => {
   const [rerender,setrerender]= useState(false);
   const haschanged = () => {
-    setrerender(!rerender)
+    // setrerender(!rerender)
+    setUser((localStorage.getItem('user')));
+
   }
   const [user , setUser] = useState({});
   var data = localStorage.getItem('user');
@@ -121,7 +123,7 @@ const EditProfile = () => {
       <div className="feature-photo">
         <figure>
           {/* this cover photo must read from local storage if not found we must give it a no cover photo is set or any other photo*/}
-          <img src={userdata.cover_pic?require("../components/images/cover_pics/"+userdata.cover_pic):require("../components/images/cover_pics/coverphotoplaceholder.png")} alt="" className='cover' />
+          <img src={userdata.cover_pic?require("../components/images/cover_pics/"+userdata.cover_pic):require("../components/images/cover_pics/coverphotoplaceholder.jpg")} alt="" className='cover' />
           </figure>
         {/* <div className="add-btn">
           <a href="#" title data-ripple>Add Friend</a>
@@ -139,7 +141,7 @@ const EditProfile = () => {
               <div className="user-avatar">
                 <figure>
                   {/* same as cover pic for profile pic */}
-                  <img src={userdata.profile_pic?require("../components/images/profile_pics/"+userdata.profile_pic):require("../components/images/profile_pics/coverphotoplaceholder.png")} alt=""  className='avatar'/>
+                  <img src={userdata.profile_pic?require("../components/images/profile_pics/"+userdata.profile_pic):require("../components/images/profile_pics/avatarphotoplaceholder.png")} alt=""  className='avatar'/>
                   <form className="edit-phto">
                     <i className="fa fa-camera-retro" />
                     <label className="fileContainer">

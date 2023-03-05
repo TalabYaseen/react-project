@@ -33,7 +33,7 @@ useEffect(()=>{
                                         <Link to={`/Elseprofile/${e.id}`}>
                                         <li>
                                       <figure>
-                                        <img src={e.profile_pic?require("./images/profile_pics/"+e.profile_pic):require("../components/images/profile_pics/coverphotoplaceholder.png")} alt="" />
+                                        <img src={e.profile_pic?require("./images/profile_pics/"+e.profile_pic):require("../components/images/profile_pics/avatarphotoplaceholder.png")} alt="" />
                                         <span className="status f-online" />
                                       </figure>
                                       <div className="friendz-meta">
