@@ -702,7 +702,7 @@ header.sticky {
     cursor: pointer;
     display: inline-block;
     vertical-align: middle;
-    margin-right: 200px;
+    margin-right: 0px;
     position: relative;
     line-height: 60px;
 }

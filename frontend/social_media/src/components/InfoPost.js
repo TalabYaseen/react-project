@@ -15,9 +15,6 @@ function InfoPost(props) {
     console.log (response.data);
     })
   }
-  const deletePost = () => {
-    
-  }
   return (
 
     <div>

@@ -24,6 +24,16 @@
     background-color: #B20000;
 }
 
-/* .pepl-info > button{
-    background-color: #B20000 !important;
-} */
+
+
+.imgNav
+{
+    border-radius: 50%;
+}
+
+.homeicon{
+    font-size: 40px;
+    color: #B20000;
+    margin: -13px;
+    margin-right: 13px;
+}
