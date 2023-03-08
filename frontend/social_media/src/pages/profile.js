@@ -114,6 +114,10 @@ const handleEditPostSubmit  = async (e) => {
   } catch (error) {
     console.error(error);
   }
+  getPosts();
+  document.getElementById(`editPostForm`).style.display = 'none';
+  document.getElementById(`editPostBTN`).style.display = 'block';
+
 };
 // لحفظ الداتا التي يدخلها المستخدم في الفورم الخاص بتعديل البوست
 const handleEditPost = (id) => {
